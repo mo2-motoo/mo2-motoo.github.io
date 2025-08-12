@@ -1,0 +1,238 @@
+---
+layout: page
+title: "아키텍처"
+description: "시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 프로젝트의 전체적인 구조"
+---
+
+<div class="content-section">
+  <h2>🏗️ 아키텍처</h2>
+  <p>
+    Motoo 프로젝트의 시스템 아키텍처, 데이터베이스 설계, 기술 스택 등 프로젝트의
+    전체적인 구조를 파악할 수 있습니다.
+  </p>
+</div>
+
+<div class="content-section">
+  <h3>📚 개요</h3>
+  <div class="info-card">
+    <h3>시스템 아키텍처 개요</h3>
+    <ul>
+      <li>마이크로서비스 아키텍처 기반 설계</li>
+      <li>REST API와 메시지 큐를 통한 서비스 간 통신</li>
+      <li>확장성과 안정성을 고려한 구조</li>
+      <li>현대적인 기술 스택 활용</li>
+    </ul>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>📊 시스템 아키텍처</h3>
+  <div class="architecture-diagram">
+    <div class="diagram-layer">
+      <h3>Presentation Layer</h3>
+      <div class="diagram-components">
+        <span class="component">API Gateway</span>
+        <span class="component">Load Balancer</span>
+        <span class="component">CDN</span>
+      </div>
+    </div>
+    <div class="diagram-layer">
+      <h3>Business Layer</h3>
+      <div class="diagram-components">
+        <span class="component">User Service</span>
+        <span class="component">Stock Service</span>
+        <span class="component">Order Service</span>
+        <span class="component">Portfolio Service</span>
+        <span class="component">Transaction Service</span>
+        <span class="component">Token Service</span>
+        <span class="component">Execution Service</span>
+      </div>
+    </div>
+    <div class="diagram-layer">
+      <h3>Data Layer</h3>
+      <div class="diagram-components">
+        <span class="component">PostgreSQL</span>
+        <span class="component">Redis</span>
+        <span class="component">Kafka</span>
+        <span class="component">AWS S3</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>🔧 기술 스택</h3>
+  <div class="tech-stack-grid">
+    <div class="tech-category">
+      <h3>Backend</h3>
+      <ul>
+        <li>Java 17</li>
+        <li>Spring Boot 3.x</li>
+        <li>PostgreSQL 14+</li>
+        <li>Redis 6+</li>
+        <li>Apache Kafka</li>
+      </ul>
+    </div>
+    <div class="tech-category">
+      <h3>Infrastructure</h3>
+      <ul>
+        <li>Docker</li>
+        <li>Kubernetes</li>
+        <li>AWS</li>
+        <li>Nginx</li>
+        <li>Prometheus + Grafana</li>
+      </ul>
+    </div>
+    <div class="tech-category">
+      <h3>Frontend</h3>
+      <ul>
+        <li>React 18</li>
+        <li>Redux Toolkit</li>
+        <li>Tailwind CSS</li>
+        <li>TypeScript</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>🗄️ 데이터베이스 ERD</h3>
+  <div class="info-card">
+    <h3>데이터베이스 설계</h3>
+    <p>
+      PostgreSQL을 기반으로 한 정규화된 데이터베이스 설계와 Redis를 활용한 캐싱
+      전략을 구현했습니다.
+    </p>
+    <ul>
+      <li>정규화된 테이블 구조</li>
+      <li>인덱스 최적화</li>
+      <li>트랜잭션 관리</li>
+      <li>백업 및 복구 전략</li>
+    </ul>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>📈 확장성 전략</h3>
+  <div class="scalability-strategies">
+    <div class="strategy">
+      <h3>수평적 확장</h3>
+      <ul>
+        <li>Auto Scaling Group</li>
+        <li>Load Balancer 트래픽 분산</li>
+        <li>데이터베이스 샤딩</li>
+      </ul>
+    </div>
+    <div class="strategy">
+      <h3>캐싱 전략</h3>
+      <ul>
+        <li>Redis Cluster</li>
+        <li>CDN 활용</li>
+        <li>Application Level Caching</li>
+      </ul>
+    </div>
+    <div class="strategy">
+      <h3>성능 최적화</h3>
+      <ul>
+        <li>인덱스 최적화</li>
+        <li>쿼리 튜닝</li>
+        <li>Read Replica 활용</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>🔒 보안 아키텍처</h3>
+  <div class="security-layers">
+    <div class="security-layer">
+      <h3>인증/인가</h3>
+      <ul>
+        <li>JWT 기반 토큰 인증</li>
+        <li>OAuth 2.0 / OIDC 지원</li>
+        <li>Role-based Access Control</li>
+      </ul>
+    </div>
+    <div class="security-layer">
+      <h3>데이터 보안</h3>
+      <ul>
+        <li>HTTPS/TLS 암호화</li>
+        <li>데이터베이스 암호화</li>
+        <li>개인정보 마스킹</li>
+      </ul>
+    </div>
+    <div class="security-layer">
+      <h3>인프라 보안</h3>
+      <ul>
+        <li>VPC 네트워크 격리</li>
+        <li>WAF (Web Application Firewall)</li>
+        <li>보안 그룹 설정</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>📊 모니터링 및 로깅</h3>
+  <div class="monitoring-stack">
+    <div class="monitoring-tool">
+      <h3>Infrastructure Monitoring</h3>
+      <ul>
+        <li>Prometheus + Grafana</li>
+        <li>시스템 메트릭 수집</li>
+        <li>대시보드 구성</li>
+      </ul>
+    </div>
+    <div class="monitoring-tool">
+      <h3>Application Monitoring</h3>
+      <ul>
+        <li>Spring Boot Actuator</li>
+        <li>Custom Metrics</li>
+        <li>Health Check</li>
+      </ul>
+    </div>
+    <div class="monitoring-tool">
+      <h3>Logging</h3>
+      <ul>
+        <li>ELK Stack</li>
+        <li>Structured Logging</li>
+        <li>Log Aggregation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <h3>🚀 배포 전략</h3>
+  <div class="deployment-info">
+    <h3>CI/CD Pipeline</h3>
+    <ol>
+      <li>Source Control (GitHub)</li>
+      <li>Build (GitHub Actions)</li>
+      <li>Test (자동화된 테스트)</li>
+      <li>Deploy (Blue-Green Deployment)</li>
+    </ol>
+
+    <h3>배포 방식</h3>
+    <ul>
+      <li><strong>Blue-Green</strong>: 무중단 배포</li>
+      <li><strong>Rolling Update</strong>: 점진적 업데이트</li>
+      <li><strong>Canary</strong>: 일부 트래픽으로 테스트</li>
+    </ul>
+  </div>
+</div>
+
+<div class="navigation-links">
+  <a href="{{ '/domain/' | relative_url }}" class="btn btn-secondary">
+    <i class="fas fa-bullseye"></i>
+    도메인 설명
+  </a>
+  <a href="{{ '/implementation/' | relative_url }}" class="btn btn-secondary">
+    <i class="fas fa-code"></i>
+    구현 방식
+  </a>
+  <a href="{{ '/testing/' | relative_url }}" class="btn btn-secondary">
+    <i class="fas fa-flask"></i>
+    테스트
+  </a>
+</div>

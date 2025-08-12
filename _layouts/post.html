@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="content-header">
+    <div class="header-content">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <p class="page-subtitle">
+        {% if page.description %}{{ page.description }}{% endif %}
+      </p>
+      <div class="post-meta">
+        <span class="post-date">
+          <i class="fas fa-calendar"></i>
+          {{ page.date | date: "%Y년 %m월 %d일" }}
+        </span>
+        {% if page.author %}
+        <span class="post-author">
+          <i class="fas fa-user"></i>
+          {{ page.author }}
+        </span>
+        {% endif %} {% if page.categories %}
+        <span class="post-category">
+          <i class="fas fa-folder"></i>
+          {{ page.categories | first }}
+        </span>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <div class="content-body">
+    <div class="post-content">{{ content }}</div>
+
+    {% if page.tags %}
+    <div class="post-tags">
+      <h3>태그</h3>
+      <div class="tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="post-navigation">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url }}" class="nav-prev">
+        <i class="fas fa-arrow-left"></i>
+        <span>{{ page.previous.title }}</span>
+      </a>
+      {% endif %} {% if page.next.url %}
+      <a href="{{ page.next.url }}" class="nav-next">
+        <span>{{ page.next.title }}</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

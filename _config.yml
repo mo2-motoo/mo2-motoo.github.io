@@ -1,0 +1,73 @@
+# Site settings
+title: "Motoo Project Documentation"
+description: "프로젝트 문서화 및 기술 블로그"
+baseurl: "/mo2-motoo.github.io"
+url: "https://mo2-motoo.github.io"
+author: "Motoo Team"
+email: "team@motoo.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Motoo Team"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - README.md
+
+# SEO
+google_analytics: ""
+twitter_username: ""
+github_username: "mo2-motoo"
+
+# Social media
+social:
+  name: Motoo Team
+  links:
+    - https://github.com/mo2-motoo
+    - https://mo2-motoo.github.io
+
+# Categories
+categories:
+  - architecture
+  - domain
+  - implementation
+  - testing
+  - troubleshooting
+  - load-testing
+  - quick-links
+  - contact
