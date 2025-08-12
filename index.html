@@ -1,169 +1,262 @@
----
-layout: default
-title: "Motoo Project Documentation"
-description: "프로젝트 문서화 및 기술 블로그"
----
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motoo Tech Blog</title>
+    <meta
+      name="description"
+      content="Motoo 프로젝트의 기술 문서와 개발 경험을 공유하는 테크 블로그입니다."
+    />
 
-<div class="content-header">
-  <div class="header-content">
-    <h1 class="page-title">Motoo Project Documentation</h1>
-    <p class="page-subtitle">
-      프로젝트의 전반적인 문서화와 기술 블로그를 위한 사이트입니다. GitHub
-      Wiki의 불편함을 해결하고, Medium 스타일의 깔끔한 UI로 제공합니다.
-    </p>
-  </div>
-</div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-<div class="content-body">
-  <section class="hero-section">
-    <div class="hero-content">
-      <h2>프로젝트 문서화의 새로운 경험</h2>
-      <p>
-        GitHub Wiki의 한계를 넘어서, 현대적이고 직관적인 문서화 플랫폼을
-        제공합니다. 마크다운으로 작성하고, Medium 스타일의 깔끔한 UI로
-        읽어보세요.
-      </p>
-    </div>
-  </section>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-  <section class="features-grid">
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-building"></i>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="/">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech</span>
+          </a>
+        </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link active">홈</a>
+          <a href="/architecture" class="nav-link">아키텍처</a>
+          <a href="/domain" class="nav-link">도메인</a>
+          <a href="/implementation" class="nav-link">구현</a>
+          <a href="/testing" class="nav-link">테스트</a>
+          <a href="/troubleshooting" class="nav-link">문제해결</a>
+        </div>
+        <div class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
       </div>
-      <h3>🏗️ 아키텍처</h3>
-      <p>
-        시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 프로젝트의 전체적인
-        구조를 파악할 수 있습니다.
-      </p>
-      <a href="{{ '/architecture/' | relative_url }}" class="feature-link">
-        아키텍처 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
+    </nav>
 
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-bullseye"></i>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-container">
+        <h1 class="hero-title">Motoo Tech Blog</h1>
+        <p class="hero-subtitle">
+          프로젝트의 기술적 경험과 지식을 공유하는 공간입니다
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">기술 문서</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">8</span>
+            <span class="stat-label">카테고리</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">마크다운</span>
+          </div>
+        </div>
       </div>
-      <h3>🎯 도메인 설명</h3>
-      <p>
-        사용자 관리, 종목, 주문, 포트폴리오 등 핵심 비즈니스 도메인에 대한
-        상세한 설명을 제공합니다.
-      </p>
-      <a href="{{ '/domain/' | relative_url }}" class="feature-link">
-        도메인 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
+    </header>
 
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-code"></i>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Featured Posts -->
+        <section class="featured-posts">
+          <h2 class="section-title">최근 포스트</h2>
+          <div class="posts-grid">
+            <article class="post-card featured">
+              <div class="post-meta">
+                <span class="post-category">아키텍처</span>
+                <span class="post-date">2024년 1월 15일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/architecture-overview"
+                  >Motoo 프로젝트 아키텍처 개요</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인
+                시스템 구조와 설계 원칙에 대해 알아봅니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">system-design</span>
+                  <span class="tag">microservices</span>
+                  <span class="tag">overview</span>
+                </div>
+                <a href="/posts/architecture-overview" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">도메인</span>
+                <span class="post-date">2024년 1월 10일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/domain-overview">핵심 비즈니스 도메인 분석</a>
+              </h3>
+              <p class="post-excerpt">
+                사용자 관리, 종목, 주문, 포트폴리오 등 핵심 비즈니스 도메인에
+                대한 상세한 분석과 설계 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">domain</span>
+                  <span class="tag">business</span>
+                </div>
+                <a href="/posts/domain-overview" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">구현</span>
+                <span class="post-date">2024년 1월 5일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/implementation-patterns"
+                  >Spring Boot 구현 패턴</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                Spring Boot를 활용한 마이크로서비스 구현 시 사용하는 다양한
+                패턴과 모범 사례를 소개합니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">spring-boot</span>
+                  <span class="tag">patterns</span>
+                </div>
+                <a href="/posts/implementation-patterns" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+          <h2 class="section-title">카테고리</h2>
+          <div class="categories-grid">
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3 class="category-title">아키텍처</h3>
+              <p class="category-description">
+                시스템 아키텍처, 설계 원칙, 기술 스택
+              </p>
+              <a href="/architecture" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3 class="category-title">도메인</h3>
+              <p class="category-description">비즈니스 도메인 분석과 설계</p>
+              <a href="/domain" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3 class="category-title">구현</h3>
+              <p class="category-description">개발 패턴과 구현 방법</p>
+              <a href="/implementation" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <h3 class="category-title">테스트</h3>
+              <p class="category-description">테스트 전략과 방법론</p>
+              <a href="/testing" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <h3 class="category-title">문제해결</h3>
+              <p class="category-description">트러블슈팅과 성능 최적화</p>
+              <a href="/troubleshooting" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3 class="category-title">부하테스트</h3>
+              <p class="category-description">성능 테스트와 모니터링</p>
+              <a href="/load-testing" class="category-link"
+                >보러가기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </section>
       </div>
-      <h3>💻 구현 방식</h3>
-      <p>
-        각 서비스별 구현 방법, 패턴, 모범 사례 등을 통해 개발자들이 쉽게
-        이해하고 참고할 수 있습니다.
-      </p>
-      <a href="{{ '/implementation/' | relative_url }}" class="feature-link">
-        구현 방식 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
+    </main>
 
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-flask"></i>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech Blog</span>
+          </div>
+          <div class="footer-links">
+            <a href="https://github.com/mo2-motoo" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:team@motoo.com">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+        </div>
       </div>
-      <h3>🧪 테스트</h3>
-      <p>
-        단위 테스트, 통합 테스트, E2E 테스트 등 다양한 테스트 전략과 방법론을
-        다룹니다.
-      </p>
-      <a href="{{ '/testing/' | relative_url }}" class="feature-link">
-        테스트 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
+    </footer>
 
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-exclamation-triangle"></i>
-      </div>
-      <h3>🚨 문제 해결</h3>
-      <p>
-        성능 최적화, 데이터베이스 문제, 서버 장애 대응 등 실제 운영 중 발생할 수
-        있는 문제들의 해결 방법을 제공합니다.
-      </p>
-      <a href="{{ '/troubleshooting/' | relative_url }}" class="feature-link">
-        문제 해결 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
-
-    <article class="feature-card">
-      <div class="feature-icon">
-        <i class="fas fa-chart-line"></i>
-      </div>
-      <h3>📈 부하 테스트</h3>
-      <p>
-        시스템의 성능과 안정성을 검증하기 위한 부하 테스트 시나리오, 결과,
-        모니터링 방법을 다룹니다.
-      </p>
-      <a href="{{ '/load-testing/' | relative_url }}" class="feature-link">
-        부하 테스트 살펴보기
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </article>
-  </section>
-
-  <section class="quick-start">
-    <h2>빠른 시작</h2>
-    <div class="quick-start-content">
-      <p>
-        새로운 팀원이나 프로젝트에 처음 참여하는 분들을 위한 빠른 시작
-        가이드입니다. 단계별로 따라하면서 프로젝트를 이해해보세요.
-      </p>
-      <div class="quick-start-buttons">
-        <a
-          href="{{ '/quick-links/getting-started/' | relative_url }}"
-          class="btn btn-primary"
-        >
-          <i class="fas fa-rocket"></i>
-          시작하기
-        </a>
-        <a
-          href="{{ '/quick-links/faq/' | relative_url }}"
-          class="btn btn-secondary"
-        >
-          <i class="fas fa-question-circle"></i>
-          FAQ
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="navigation-links">
-    <a href="{{ '/architecture/' | relative_url }}" class="btn btn-secondary">
-      <i class="fas fa-building"></i>
-      아키텍처
-    </a>
-    <a href="{{ '/domain/' | relative_url }}" class="btn btn-secondary">
-      <i class="fas fa-bullseye"></i>
-      도메인
-    </a>
-    <a href="{{ '/implementation/' | relative_url }}" class="btn btn-secondary">
-      <i class="fas fa-code"></i>
-      구현
-    </a>
-    <a href="{{ '/testing/' | relative_url }}" class="btn btn-secondary">
-      <i class="fas fa-flask"></i>
-      테스트
-    </a>
-    <a href="{{ '/contact/' | relative_url }}" class="btn btn-secondary">
-      <i class="fas fa-phone"></i>
-      문의
-    </a>
-  </section>
-</div>
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

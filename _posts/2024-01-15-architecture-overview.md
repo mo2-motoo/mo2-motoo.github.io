@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "아키텍처 개요"
+title: "Motoo 프로젝트 아키텍처 개요"
 date: 2024-01-15
 categories: [architecture]
 tags: [system-design, microservices, overview]
@@ -8,7 +8,7 @@ author: "Motoo Team"
 description: "Motoo 프로젝트의 전체적인 시스템 아키텍처와 설계 원칙에 대한 개요"
 ---
 
-# 아키텍처 개요
+# Motoo 프로젝트 아키텍처 개요
 
 ## 시스템 구조
 

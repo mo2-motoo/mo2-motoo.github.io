@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 아키텍처 - Motoo Tech Blog
-description: 시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 프로젝트의 전체적인 구조
+title: 도메인 - Motoo Tech Blog
+description: 비즈니스 도메인 분석과 설계, 핵심 엔티티와 비즈니스 로직
 ---
 
 <!-- Page Content -->
@@ -10,59 +10,58 @@ description: 시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 �
     <!-- Category Header -->
     <header class="category-header">
       <div class="category-icon">
-        <i class="fas fa-building"></i>
+        <i class="fas fa-bullseye"></i>
       </div>
-      <h1>🏗️ 아키텍처</h1>
+      <h1>🎯 도메인</h1>
       <p class="category-description">
-        Motoo 프로젝트의 시스템 아키텍처, 데이터베이스 설계, 기술 스택 등
-        프로젝트의 전체적인 구조를 파악할 수 있습니다.
+        Motoo 프로젝트의 핵심 비즈니스 도메인 분석과 설계, 사용자 관리, 종목,
+        주문, 포트폴리오 등 주요 엔티티와 비즈니스 로직을 다룹니다.
       </p>
     </header>
 
     <!-- Overview Section -->
     <section class="overview-section">
-      <h2>📚 아키텍처 개요</h2>
+      <h2>📚 도메인 개요</h2>
       <div class="overview-cards">
         <div class="overview-card">
           <div class="card-icon">
-            <i class="fas fa-sitemap"></i>
+            <i class="fas fa-users"></i>
           </div>
-          <h3>시스템 구조</h3>
-          <p>마이크로서비스 아키텍처 기반의 확장 가능한 시스템 설계</p>
+          <h3>사용자 관리</h3>
+          <p>회원가입, 로그인, 프로필 관리 등 사용자 관련 비즈니스 로직</p>
         </div>
         <div class="overview-card">
           <div class="card-icon">
-            <i class="fas fa-database"></i>
+            <i class="fas fa-chart-bar"></i>
           </div>
-          <h3>데이터 설계</h3>
-          <p>PostgreSQL 기반의 정규화된 데이터베이스 구조</p>
+          <h3>종목 관리</h3>
+          <p>주식 종목 정보, 시세 데이터, 종목 검색 및 필터링</p>
         </div>
         <div class="overview-card">
           <div class="card-icon">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-shopping-cart"></i>
           </div>
-          <h3>보안 아키텍처</h3>
-          <p>JWT 기반 인증 및 다층 보안 구조</p>
+          <h3>주문 처리</h3>
+          <p>매수/매도 주문, 주문 상태 관리, 체결 처리</p>
         </div>
         <div class="overview-card">
           <div class="card-icon">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-briefcase"></i>
           </div>
-          <h3>확장성</h3>
-          <p>수평적 확장이 가능한 클라우드 네이티브 아키텍처</p>
+          <h3>포트폴리오</h3>
+          <p>포트폴리오 구성, 자산 현황, 수익률 계산</p>
         </div>
       </div>
     </section>
 
     <!-- Posts Section -->
     <section class="posts-section">
-      <h2>📖 아키텍처 문서</h2>
+      <h2>📖 도메인 문서</h2>
 
-      {% assign architecture_posts = site.posts | where_exp: "post",
-      "post.categories contains 'architecture'" %} {% if architecture_posts.size
-      > 0 %}
+      {% assign domain_posts = site.posts | where_exp: "post", "post.categories
+      contains 'domain'" %} {% if domain_posts.size > 0 %}
       <div class="posts-grid">
-        {% for post in architecture_posts %}
+        {% for post in domain_posts %}
         <article class="post-card">
           <div class="post-meta">
             <span class="post-category"
@@ -98,7 +97,7 @@ description: 시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 �
           <i class="fas fa-file-alt"></i>
         </div>
         <h3>아직 게시된 문서가 없습니다</h3>
-        <p>아키텍처 관련 문서를 작성하면 여기에 표시됩니다.</p>
+        <p>도메인 관련 문서를 작성하면 여기에 표시됩니다.</p>
         <div class="no-posts-actions">
           <a href="/" class="btn btn-primary">
             <i class="fas fa-home"></i>
@@ -113,9 +112,9 @@ description: 시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 �
     <section class="quick-links">
       <h2>🔗 빠른 링크</h2>
       <div class="links-grid">
-        <a href="/domain" class="link-card">
-          <i class="fas fa-bullseye"></i>
-          <span>도메인 설계</span>
+        <a href="/architecture" class="link-card">
+          <i class="fas fa-building"></i>
+          <span>아키텍처 설계</span>
         </a>
         <a href="/implementation" class="link-card">
           <i class="fas fa-code"></i>

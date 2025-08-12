@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제해결 - Motoo Tech Blog</title>
+    <meta
+      name="description"
+      content="트러블슈팅과 성능 최적화, 개발 과정에서 발생한 문제들과 해결 방법"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="/">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech</span>
+          </a>
+        </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link">홈</a>
+          <a href="/architecture" class="nav-link">아키텍처</a>
+          <a href="/domain" class="nav-link">도메인</a>
+          <a href="/implementation" class="nav-link">구현</a>
+          <a href="/testing" class="nav-link">테스트</a>
+          <a href="/troubleshooting" class="nav-link active">문제해결</a>
+        </div>
+        <div class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Category Header -->
+        <header class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h1>🔧 문제해결</h1>
+          <p class="category-description">
+            개발 과정에서 발생한 다양한 문제들과 해결 방법, 성능 최적화, 디버깅
+            기법 등을 공유합니다. 실제 경험을 바탕으로 한 실용적인 해결책을
+            제공합니다.
+          </p>
+        </header>
+
+        <!-- Overview Section -->
+        <section class="overview-section">
+          <h2>📚 문제해결 개요</h2>
+          <div class="overview-cards">
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-bug"></i>
+              </div>
+              <h3>디버깅</h3>
+              <p>Spring Boot 애플리케이션 디버깅 기법과 로그 분석 방법</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              <h3>성능 최적화</h3>
+              <p>JVM 튜닝, 데이터베이스 최적화, 캐싱 전략</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3>데이터베이스 문제</h3>
+              <p>N+1 문제, 데드락, 인덱스 최적화 등 DB 관련 이슈</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <h3>인프라 문제</h3>
+              <p>Docker, Kubernetes, AWS 관련 문제와 해결 방법</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Posts Section -->
+        <section class="posts-section">
+          <h2>📖 문제해결 문서</h2>
+          <div class="posts-grid">
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">성능 최적화</span>
+                <span class="post-date">2024년 1월 20일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/performance-issues"
+                  >Spring Boot 성능 문제 해결</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                메모리 누수, GC 문제, 응답 시간 지연 등 Spring Boot
+                애플리케이션의 성능 문제 진단과 해결 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">performance</span>
+                  <span class="tag">memory-leak</span>
+                  <span class="tag">gc</span>
+                </div>
+                <a href="/posts/performance-issues" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">데이터베이스</span>
+                <span class="post-date">2024년 1월 18일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/n-plus-one-problem">N+1 문제 해결 가이드</a>
+              </h3>
+              <p class="post-excerpt">
+                JPA에서 자주 발생하는 N+1 문제의 원인 분석과 해결 방법, 페치
+                조인, 배치 페치 등의 최적화 기법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">n-plus-one</span>
+                  <span class="tag">jpa</span>
+                  <span class="tag">optimization</span>
+                </div>
+                <a href="/posts/n-plus-one-problem" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">메모리 관리</span>
+                <span class="post-date">2024년 1월 15일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/memory-leak">JVM 메모리 누수 진단 및 해결</a>
+              </h3>
+              <p class="post-excerpt">
+                JVM 힙 메모리 누수 문제 진단 방법, MAT(Memory Analyzer Tool)
+                활용법, 메모리 누수 방지 기법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">memory-leak</span>
+                  <span class="tag">jvm</span>
+                  <span class="tag">heap</span>
+                </div>
+                <a href="/posts/memory-leak" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">데이터베이스</span>
+                <span class="post-date">2024년 1월 12일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/deadlock-resolution">PostgreSQL 데드락 해결</a>
+              </h3>
+              <p class="post-excerpt">
+                PostgreSQL에서 발생하는 데드락 문제의 원인 분석, 데드락 감지
+                방법, 예방 및 해결 전략을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">deadlock</span>
+                  <span class="tag">postgresql</span>
+                  <span class="tag">transaction</span>
+                </div>
+                <a href="/posts/deadlock-resolution" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">캐싱</span>
+                <span class="post-date">2024년 1월 10일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/redis-issues">Redis 캐싱 문제 해결</a>
+              </h3>
+              <p class="post-excerpt">
+                Redis 연결 문제, 캐시 무효화 이슈, 메모리 부족 문제 등 Redis
+                관련 문제들과 해결 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">redis</span>
+                  <span class="tag">caching</span>
+                  <span class="tag">connection</span>
+                </div>
+                <a href="/posts/redis-issues" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">인프라</span>
+                <span class="post-date">2024년 1월 8일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/docker-kubernetes-issues"
+                  >Docker & Kubernetes 문제 해결</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                컨테이너 실행 문제, 이미지 빌드 실패, Kubernetes 배포 이슈 등
+                인프라 관련 문제들과 해결 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">docker</span>
+                  <span class="tag">kubernetes</span>
+                  <span class="tag">container</span>
+                </div>
+                <a href="/posts/docker-kubernetes-issues" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links">
+          <h2>🔗 빠른 링크</h2>
+          <div class="links-grid">
+            <a href="/architecture" class="link-card">
+              <i class="fas fa-building"></i>
+              <span>아키텍처 설계</span>
+            </a>
+            <a href="/domain" class="link-card">
+              <i class="fas fa-bullseye"></i>
+              <span>도메인 설계</span>
+            </a>
+            <a href="/implementation" class="link-card">
+              <i class="fas fa-code"></i>
+              <span>구현 패턴</span>
+            </a>
+            <a href="/testing" class="link-card">
+              <i class="fas fa-flask"></i>
+              <span>테스트 전략</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech Blog</span>
+          </div>
+          <div class="footer-links">
+            <a href="https://github.com/mo2-motoo" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:team@motoo.com">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

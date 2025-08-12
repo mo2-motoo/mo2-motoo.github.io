@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구현 - Motoo Tech Blog</title>
+    <meta name="description" content="개발 패턴과 구현 방법, Spring Boot, 마이크로서비스 구현 패턴">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/">
+                    <i class="fas fa-rocket"></i>
+                    <span>Motoo Tech</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">홈</a>
+                <a href="/architecture" class="nav-link">아키텍처</a>
+                <a href="/domain" class="nav-link">도메인</a>
+                <a href="/implementation" class="nav-link active">구현</a>
+                <a href="/testing" class="nav-link">테스트</a>
+                <a href="/troubleshooting" class="nav-link">문제해결</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Category Header -->
+            <header class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1>💻 구현</h1>
+                <p class="category-description">
+                    Spring Boot를 활용한 마이크로서비스 구현 패턴, 개발 모범 사례, 코드 구조, 성능 최적화 등 실제 개발 과정에서 적용한 방법들을 공유합니다.
+                </p>
+            </header>
+
+            <!-- Overview Section -->
+            <section class="overview-section">
+                <h2>📚 구현 개요</h2>
+                <div class="overview-cards">
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>계층 구조</h3>
+                        <p>Controller, Service, Repository 계층의 명확한 분리와 역할 정의</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>디자인 패턴</h3>
+                        <p>Repository, DTO, Factory 등 다양한 디자인 패턴 적용</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>예외 처리</h3>
+                        <p>체계적인 예외 처리와 글로벌 에러 핸들링 구현</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>성능 최적화</h3>
+                        <p>캐싱, 페이징, 비동기 처리 등 성능 최적화 기법</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Posts Section -->
+            <section class="posts-section">
+                <h2>📖 구현 문서</h2>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">구현 패턴</span>
+                            <span class="post-date">2024년 1월 20일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/spring-boot-microservices-patterns">Spring Boot 마이크로서비스 구현 패턴</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Spring Boot를 활용한 마이크로서비스 아키텍처의 구현 패턴과 모범 사례를 다룹니다. 실제 프로젝트에서 적용한 경험을 바탕으로 실용적인 가이드를 제공합니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">java</span>
+                                <span class="tag">microservices</span>
+                                <span class="tag">spring-boot</span>
+                            </div>
+                            <a href="/posts/spring-boot-microservices-patterns" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">데이터 접근</span>
+                            <span class="post-date">2024년 1월 18일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/repository-pattern">Repository 패턴 구현 가이드</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Spring Data JPA를 활용한 Repository 패턴 구현 방법과 커스텀 쿼리 작성, 성능 최적화 기법을 다룹니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">jpa</span>
+                                <span class="tag">repository</span>
+                                <span class="tag">database</span>
+                            </div>
+                            <a href="/posts/repository-pattern" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">API 설계</span>
+                            <span class="post-date">2024년 1월 15일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/rest-api-design">REST API 설계 및 구현</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            RESTful API 설계 원칙, URL 구조, HTTP 메서드 활용, 응답 형식 표준화 등 API 설계 모범 사례를 다룹니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">rest</span>
+                                <span class="tag">api</span>
+                                <span class="tag">design</span>
+                            </div>
+                            <a href="/posts/rest-api-design" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">예외 처리</span>
+                            <span class="post-date">2024년 1월 12일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/exception-handling">Spring Boot 예외 처리 전략</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            커스텀 예외 정의, 글로벌 예외 핸들러, 예외 응답 표준화 등 체계적인 예외 처리 방법을 다룹니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">exception</span>
+                                <span class="tag">error-handling</span>
+                                <span class="tag">spring</span>
+                            </div>
+                            <a href="/posts/exception-handling" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">성능 최적화</span>
+                            <span class="post-date">2024년 1월 10일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/performance-optimization">Spring Boot 성능 최적화</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            캐싱 전략, 페이징 처리, 비동기 처리, 데이터베이스 최적화 등 성능 향상을 위한 다양한 기법을 다룹니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">performance</span>
+                                <span class="tag">caching</span>
+                                <span class="tag">optimization</span>
+                            </div>
+                            <a href="/posts/performance-optimization" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span class="post-category">보안 구현</span>
+                            <span class="post-date">2024년 1월 8일</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="/posts/security-implementation">Spring Security 구현 가이드</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            JWT 인증, OAuth 2.0, 권한 관리, CSRF 방지 등 Spring Security를 활용한 보안 구현 방법을 다룹니다.
+                        </p>
+                        <div class="post-footer">
+                            <div class="post-tags">
+                                <span class="tag">security</span>
+                                <span class="tag">jwt</span>
+                                <span class="tag">oauth</span>
+                            </div>
+                            <a href="/posts/security-implementation" class="read-more">
+                                읽어보기 <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <section class="quick-links">
+                <h2>🔗 빠른 링크</h2>
+                <div class="links-grid">
+                    <a href="/architecture" class="link-card">
+                        <i class="fas fa-building"></i>
+                        <span>아키텍처 설계</span>
+                    </a>
+                    <a href="/domain" class="link-card">
+                        <i class="fas fa-bullseye"></i>
+                        <span>도메인 설계</span>
+                    </a>
+                    <a href="/testing" class="link-card">
+                        <i class="fas fa-flask"></i>
+                        <span>테스트 전략</span>
+                    </a>
+                    <a href="/troubleshooting" class="link-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>문제해결</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-rocket"></i>
+                    <span>Motoo Tech Blog</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/mo2-motoo" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:team@motoo.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
