@@ -58,55 +58,33 @@ description: 시스템 아키텍처, 데이터베이스 ERD, 기술 스택 등 �
     <section class="posts-section">
       <h2>📖 아키텍처 문서</h2>
 
-      {% assign architecture_posts = site.posts | where_exp: "post",
-      "post.categories contains 'architecture'" %} {% if architecture_posts.size
-      > 0 %}
       <div class="posts-grid">
-        {% for post in architecture_posts %}
         <article class="post-card">
           <div class="post-meta">
-            <span class="post-category"
-              >{{ post.categories | first | capitalize }}</span
-            >
-            <span class="post-date"
-              >{{ post.date | date: "%Y년 %m월 %d일" }}</span
-            >
+            <span class="post-category">시스템 아키텍처</span>
+            <span class="post-date">2024년 1월 15일</span>
           </div>
           <h3 class="post-title">
-            <a href="{{ post.url }}">{{ post.title }}</a>
+            <a href="/posts/architecture-overview.html"
+              >Motoo 프로젝트 아키텍처 개요</a
+            >
           </h3>
           <p class="post-excerpt">
-            {{ post.description | default: post.excerpt | strip_html | truncate:
-            150 }}
+            마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인
+            시스템 구조와 설계 원칙에 대해 알아봅니다.
           </p>
           <div class="post-footer">
             <div class="post-tags">
-              {% for tag in post.tags limit: 3 %}
-              <span class="tag">{{ tag }}</span>
-              {% endfor %}
+              <span class="tag">system-design</span>
+              <span class="tag">microservices</span>
+              <span class="tag">overview</span>
             </div>
-            <a href="{{ post.url }}" class="read-more">
+            <a href="/posts/architecture-overview.html" class="read-more">
               읽어보기 <i class="fas fa-arrow-right"></i>
             </a>
           </div>
         </article>
-        {% endfor %}
       </div>
-      {% else %}
-      <div class="no-posts">
-        <div class="no-posts-icon">
-          <i class="fas fa-file-alt"></i>
-        </div>
-        <h3>아직 게시된 문서가 없습니다</h3>
-        <p>아키텍처 관련 문서를 작성하면 여기에 표시됩니다.</p>
-        <div class="no-posts-actions">
-          <a href="/" class="btn btn-primary">
-            <i class="fas fa-home"></i>
-            홈으로 돌아가기
-          </a>
-        </div>
-      </div>
-      {% endif %}
     </section>
 
     <!-- Quick Links -->

@@ -1,242 +1,588 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motoo 프로젝트 아키텍처 개요 - Motoo Tech Blog</title>
-    <meta name="description" content="마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인 시스템 구조와 설계 원칙에 대해 알아봅니다.">
-    
+    <meta
+      name="description"
+      content="Motoo 프로젝트의 전체적인 시스템 아키텍처와 설계 원칙에 대한 개요"
+    />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- Post-specific CSS -->
+    <style>
+      .post-content {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .post-content h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 2rem 0 1rem 0;
+        color: var(--text-primary);
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .post-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 2.5rem 0 1rem 0;
+        color: var(--text-primary);
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+      }
+
+      .post-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 2rem 0 0.75rem 0;
+        color: var(--text-primary);
+      }
+
+      .post-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      .post-content ul,
+      .post-content ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+      }
+
+      .post-content li {
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+      }
+
+      .post-content strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .post-content code {
+        background: var(--bg-card);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: "Monaco", "Menlo", monospace;
+        font-size: 0.9rem;
+        color: var(--primary-color);
+      }
+
+      .post-content pre {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+      }
+
+      .post-content pre code {
+        background: none;
+        padding: 0;
+        color: var(--text-primary);
+      }
+
+      .tech-stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .tech-category {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .tech-category h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tech-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tech-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tech-list li:last-child {
+        border-bottom: none;
+      }
+
+      .tech-list li i {
+        color: var(--primary-color);
+        width: 16px;
+      }
+
+      .architecture-diagram {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .architecture-diagram h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .architecture-diagram .diagram-placeholder {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-hover) 100%
+        );
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: var(--bg-card);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+
+      .post-meta .author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .post-meta .author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+      }
+
+      .post-meta .date {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .post-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .post-tags .tag {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      @media (max-width: 768px) {
+        .post-content {
+          font-size: 1rem;
+          padding: 0 1rem;
+        }
+
+        .post-content h1 {
+          font-size: 2rem;
+        }
+
+        .post-content h2 {
+          font-size: 1.5rem;
+        }
+
+        .tech-stack-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .post-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="/">
-                    <i class="fas fa-rocket"></i>
-                    <span>Motoo Tech</span>
-                </a>
-            </div>
-            <div class="nav-menu">
-                <a href="/" class="nav-link">홈</a>
-                <a href="/architecture" class="nav-link active">아키텍처</a>
-                <a href="/domain" class="nav-link">도메인</a>
-                <a href="/implementation" class="nav-link">구현</a>
-                <a href="/testing" class="nav-link">테스트</a>
-                <a href="/troubleshooting" class="nav-link">문제해결</a>
-            </div>
-            <div class="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="/">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech</span>
+          </a>
         </div>
+        <div class="nav-menu">
+          <a href="/" class="nav-link">홈</a>
+          <a href="/architecture" class="nav-link active">아키텍처</a>
+          <a href="/domain" class="nav-link">도메인</a>
+          <a href="/implementation" class="nav-link">구현</a>
+          <a href="/testing" class="nav-link">테스트</a>
+          <a href="/troubleshooting" class="nav-link">문제해결</a>
+        </div>
+        <div class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
     </nav>
 
+    <!-- Post Header -->
+    <header class="post-header">
+      <div class="container">
+        <div class="post-meta">
+          <div class="author">
+            <div class="author-avatar">M</div>
+            <span>Motoo Team</span>
+          </div>
+          <div class="date">
+            <i class="fas fa-calendar"></i>
+            2024년 1월 15일
+          </div>
+          <div class="post-tags">
+            <span class="tag">system-design</span>
+            <span class="tag">microservices</span>
+            <span class="tag">overview</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <!-- Post Content -->
-    <main class="post-page">
-        <article>
-            <header class="post-header">
-                <div class="post-meta">
-                    <span class="post-category">아키텍처</span>
-                    <span class="post-date">2024년 1월 15일</span>
-                </div>
-                <h1>Motoo 프로젝트 아키텍처 개요</h1>
-                <p class="post-description">마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인 시스템 구조와 설계 원칙에 대해 알아봅니다.</p>
-            </header>
+    <main class="main-content">
+      <div class="container">
+        <article class="post-content">
+          <h1>Motoo 프로젝트 아키텍처 개요</h1>
 
-            <div class="post-content">
-                <h2>시스템 구조</h2>
-                <p>Motoo 프로젝트는 <strong>마이크로서비스 아키텍처</strong>를 기반으로 설계되었습니다. 각 서비스는 독립적으로 개발, 배포, 확장이 가능하며, REST API와 메시지 큐를 통해 서로 통신합니다.</p>
+          <p>
+            Motoo 프로젝트는 <strong>마이크로서비스 아키텍처</strong>를 기반으로
+            설계되었습니다. 각 서비스는 독립적으로 개발, 배포, 확장이 가능하며,
+            REST API와 메시지 큐를 통해 서로 통신합니다.
+          </p>
 
-                <h3>핵심 설계 원칙</h3>
-                <ul>
-                    <li><strong>단일 책임 원칙</strong>: 각 서비스는 하나의 명확한 비즈니스 도메인을 담당</li>
-                    <li><strong>독립성</strong>: 서비스 간 느슨한 결합으로 유지보수성 향상</li>
-                    <li><strong>확장성</strong>: 수평적 확장이 용이한 구조</li>
-                    <li><strong>안정성</strong>: 장애 격리와 복구 능력 보장</li>
-                </ul>
+          <h2>시스템 구조</h2>
 
-                <h2>기술 스택</h2>
-                <h3>Backend</h3>
-                <ul>
-                    <li><strong>언어</strong>: Java 17</li>
-                    <li><strong>프레임워크</strong>: Spring Boot 3.x</li>
-                    <li><strong>데이터베이스</strong>: PostgreSQL 14+, Redis 6+</li>
-                    <li><strong>메시지 큐</strong>: Apache Kafka</li>
-                    <li><strong>API 문서</strong>: OpenAPI 3.0 (Swagger)</li>
-                </ul>
+          <div class="architecture-diagram">
+            <h4>마이크로서비스 아키텍처 구조</h4>
+            <div class="diagram-placeholder">
+              <i
+                class="fas fa-sitemap"
+                style="font-size: 3rem; margin-bottom: 1rem"
+              ></i>
+              <p>API Gateway → Business Services → Data Layer</p>
+              <p>각 서비스는 독립적으로 배포 및 확장 가능</p>
+            </div>
+          </div>
 
-                <h3>Infrastructure</h3>
-                <ul>
-                    <li><strong>컨테이너</strong>: Docker</li>
-                    <li><strong>오케스트레이션</strong>: Kubernetes</li>
-                    <li><strong>클라우드</strong>: AWS</li>
-                    <li><strong>로드 밸런서</strong>: Nginx</li>
-                    <li><strong>모니터링</strong>: Prometheus + Grafana</li>
-                </ul>
+          <h3>핵심 설계 원칙</h3>
+          <ul>
+            <li>
+              <strong>단일 책임 원칙</strong>: 각 서비스는 하나의 명확한
+              비즈니스 도메인을 담당
+            </li>
+            <li>
+              <strong>독립성</strong>: 서비스 간 느슨한 결합으로 유지보수성 향상
+            </li>
+            <li><strong>확장성</strong>: 수평적 확장이 용이한 구조</li>
+            <li><strong>안정성</strong>: 장애 격리와 복구 능력 보장</li>
+          </ul>
 
-                <h2>서비스 아키텍처</h2>
-                <h3>1. Presentation Layer</h3>
-                <ul>
-                    <li><strong>API Gateway</strong>: 모든 외부 요청의 진입점</li>
-                    <li><strong>Load Balancer</strong>: 트래픽 분산 및 고가용성 보장</li>
-                    <li><strong>CDN</strong>: 정적 리소스 전송 최적화</li>
-                </ul>
+          <h2>기술 스택</h2>
 
-                <h3>2. Business Layer</h3>
-                <ul>
-                    <li><strong>User Service</strong>: 사용자 인증, 권한 관리</li>
-                    <li><strong>Stock Service</strong>: 종목 정보, 시세 데이터</li>
-                    <li><strong>Order Service</strong>: 주문 처리, 주문 상태 관리</li>
-                    <li><strong>Portfolio Service</strong>: 포트폴리오 관리, 자산 현황</li>
-                    <li><strong>Transaction Service</strong>: 거래 내역 관리</li>
-                    <li><strong>Token Service</strong>: JWT 토큰 관리</li>
-                    <li><strong>Execution Service</strong>: 주문 체결 처리</li>
-                </ul>
-
-                <h3>3. Data Layer</h3>
-                <ul>
-                    <li><strong>Primary Database</strong>: PostgreSQL (주 데이터 저장)</li>
-                    <li><strong>Cache</strong>: Redis (세션, 임시 데이터)</li>
-                    <li><strong>Message Queue</strong>: Kafka (비동기 처리)</li>
-                    <li><strong>File Storage</strong>: AWS S3 (파일 저장)</li>
-                </ul>
-
-                <h2>통신 패턴</h2>
-                <h3>동기 통신 (REST API)</h3>
-                <p>실시간 데이터 요청, 사용자 인증/인가, 즉시 응답이 필요한 작업에 사용됩니다.</p>
-
-                <h3>비동기 통신 (Kafka)</h3>
-                <p>이벤트 기반 처리, 배치 작업, 알림 발송에 활용됩니다.</p>
-
-                <h3>gRPC</h3>
-                <p>서비스 간 내부 통신, 높은 성능이 필요한 작업에 사용됩니다.</p>
-
-                <h2>보안 아키텍처</h2>
-                <h3>인증/인가</h3>
-                <ul>
-                    <li>JWT 기반 토큰 인증</li>
-                    <li>OAuth 2.0 / OIDC 지원</li>
-                    <li>Role-based Access Control (RBAC)</li>
-                </ul>
-
-                <h3>데이터 보안</h3>
-                <ul>
-                    <li>HTTPS/TLS 암호화</li>
-                    <li>데이터베이스 암호화</li>
-                    <li>개인정보 마스킹</li>
-                </ul>
-
-                <h2>확장성 전략</h2>
-                <h3>수평적 확장</h3>
-                <ul>
-                    <li>Auto Scaling Group</li>
-                    <li>Load Balancer를 통한 트래픽 분산</li>
-                    <li>데이터베이스 샤딩</li>
-                </ul>
-
-                <h3>캐싱 전략</h3>
-                <ul>
-                    <li>Redis Cluster</li>
-                    <li>CDN 활용</li>
-                    <li>Application Level Caching</li>
-                </ul>
-
-                <h2>모니터링 및 로깅</h2>
-                <h3>모니터링</h3>
-                <ul>
-                    <li><strong>Infrastructure</strong>: Prometheus + Grafana</li>
-                    <li><strong>Application</strong>: Spring Boot Actuator</li>
-                    <li><strong>Custom Metrics</strong>: 비즈니스 지표 추적</li>
-                </ul>
-
-                <h3>로깅</h3>
-                <ul>
-                    <li><strong>Centralized Logging</strong>: ELK Stack</li>
-                    <li><strong>Structured Logging</strong>: JSON 형태</li>
-                    <li><strong>Log Aggregation</strong>: Fluentd</li>
-                </ul>
-
-                <h2>배포 전략</h2>
-                <h3>CI/CD Pipeline</h3>
-                <ul>
-                    <li><strong>Source Control</strong>: GitHub</li>
-                    <li><strong>Build</strong>: GitHub Actions</li>
-                    <li><strong>Test</strong>: 자동화된 테스트 실행</li>
-                    <li><strong>Deploy</strong>: Blue-Green Deployment</li>
-                </ul>
-
-                <h2>성능 목표</h2>
-                <h3>응답 시간</h3>
-                <ul>
-                    <li>API 응답: 95% < 200ms</li>
-                    <li>페이지 로드: 95% < 2초</li>
-                    <li>데이터베이스 쿼리: 95% < 50ms</li>
-                </ul>
-
-                <h3>가용성</h3>
-                <ul>
-                    <li>시스템 가용성: 99.9%</li>
-                    <li>데이터 백업: 일일 백업</li>
-                    <li>재해 복구: RTO < 4시간, RPO < 1시간</li>
-                </ul>
-
-                <h2>결론</h2>
-                <p>Motoo 프로젝트의 아키텍처는 <strong>확장성</strong>, <strong>안정성</strong>, <strong>유지보수성</strong>을 핵심 가치로 설계되었습니다. 마이크로서비스 패턴을 통해 각 서비스의 독립성을 보장하고, 현대적인 기술 스택을 활용하여 높은 성능과 안정성을 제공합니다.</p>
-
-                <p>앞으로의 개발 과정에서 이러한 아키텍처 원칙을 지키면서, 지속적인 개선과 최적화를 통해 더 나은 시스템을 구축해 나갈 것입니다.</p>
+          <div class="tech-stack-grid">
+            <div class="tech-category">
+              <h4><i class="fas fa-server"></i> Backend</h4>
+              <ul class="tech-list">
+                <li><i class="fas fa-code"></i> Java 17</li>
+                <li><i class="fas fa-leaf"></i> Spring Boot 3.x</li>
+                <li><i class="fas fa-database"></i> PostgreSQL 14+</li>
+                <li><i class="fas fa-memory"></i> Redis 6+</li>
+                <li><i class="fas fa-stream"></i> Apache Kafka</li>
+                <li><i class="fas fa-file-alt"></i> OpenAPI 3.0</li>
+              </ul>
             </div>
 
-            <footer class="post-footer">
-                <div class="post-tags">
-                    <span class="tag">system-design</span>
-                    <span class="tag">microservices</span>
-                    <span class="tag">architecture</span>
-                    <span class="tag">spring-boot</span>
-                </div>
-                <div class="post-navigation">
-                    <a href="/" class="nav-link">
-                        <i class="fas fa-arrow-left"></i>
-                        홈으로 돌아가기
-                    </a>
-                </div>
-            </footer>
+            <div class="tech-category">
+              <h4><i class="fas fa-cloud"></i> Infrastructure</h4>
+              <ul class="tech-list">
+                <li><i class="fab fa-docker"></i> Docker</li>
+                <li><i class="fas fa-cubes"></i> Kubernetes</li>
+                <li><i class="fab fa-aws"></i> AWS</li>
+                <li><i class="fas fa-balance-scale"></i> Nginx</li>
+                <li><i class="fas fa-chart-line"></i> Prometheus + Grafana</li>
+              </ul>
+            </div>
+
+            <div class="tech-category">
+              <h4><i class="fas fa-desktop"></i> Frontend</h4>
+              <ul class="tech-list">
+                <li><i class="fab fa-react"></i> React 18</li>
+                <li><i class="fas fa-box"></i> Redux Toolkit</li>
+                <li><i class="fas fa-palette"></i> Tailwind CSS</li>
+                <li><i class="fab fa-js-square"></i> TypeScript</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>서비스 아키텍처</h2>
+
+          <h3>1. Presentation Layer</h3>
+          <ul>
+            <li><strong>API Gateway</strong>: 모든 외부 요청의 진입점</li>
+            <li>
+              <strong>Load Balancer</strong>: 트래픽 분산 및 고가용성 보장
+            </li>
+            <li><strong>CDN</strong>: 정적 리소스 전송 최적화</li>
+          </ul>
+
+          <h3>2. Business Layer</h3>
+          <ul>
+            <li><strong>User Service</strong>: 사용자 인증, 권한 관리</li>
+            <li><strong>Stock Service</strong>: 종목 정보, 시세 데이터</li>
+            <li><strong>Order Service</strong>: 주문 처리, 주문 상태 관리</li>
+            <li>
+              <strong>Portfolio Service</strong>: 포트폴리오 관리, 자산 현황
+            </li>
+            <li><strong>Transaction Service</strong>: 거래 내역 관리</li>
+            <li><strong>Token Service</strong>: JWT 토큰 관리</li>
+            <li><strong>Execution Service</strong>: 주문 체결 처리</li>
+          </ul>
+
+          <h3>3. Data Layer</h3>
+          <ul>
+            <li>
+              <strong>Primary Database</strong>: PostgreSQL (주 데이터 저장)
+            </li>
+            <li><strong>Cache</strong>: Redis (세션, 임시 데이터)</li>
+            <li><strong>Message Queue</strong>: Kafka (비동기 처리)</li>
+            <li><strong>File Storage</strong>: AWS S3 (파일 저장)</li>
+          </ul>
+
+          <h2>통신 패턴</h2>
+
+          <h3>동기 통신 (REST API)</h3>
+          <ul>
+            <li>실시간 데이터 요청</li>
+            <li>사용자 인증/인가</li>
+            <li>즉시 응답이 필요한 작업</li>
+          </ul>
+
+          <h3>비동기 통신 (Kafka)</h3>
+          <ul>
+            <li>이벤트 기반 처리</li>
+            <li>배치 작업</li>
+            <li>알림 발송</li>
+          </ul>
+
+          <h3>gRPC</h3>
+          <ul>
+            <li>서비스 간 내부 통신</li>
+            <li>높은 성능이 필요한 작업</li>
+          </ul>
+
+          <h2>보안 아키텍처</h2>
+
+          <h3>인증/인가</h3>
+          <ul>
+            <li>JWT 기반 토큰 인증</li>
+            <li>OAuth 2.0 / OIDC 지원</li>
+            <li>Role-based Access Control (RBAC)</li>
+          </ul>
+
+          <h3>데이터 보안</h3>
+          <ul>
+            <li>HTTPS/TLS 암호화</li>
+            <li>데이터베이스 암호화</li>
+            <li>개인정보 마스킹</li>
+          </ul>
+
+          <h3>인프라 보안</h3>
+          <ul>
+            <li>VPC 네트워크 격리</li>
+            <li>WAF (Web Application Firewall)</li>
+            <li>보안 그룹 설정</li>
+          </ul>
+
+          <h2>확장성 전략</h2>
+
+          <h3>수평적 확장</h3>
+          <ul>
+            <li>Auto Scaling Group</li>
+            <li>Load Balancer를 통한 트래픽 분산</li>
+            <li>데이터베이스 샤딩</li>
+          </ul>
+
+          <h3>캐싱 전략</h3>
+          <ul>
+            <li>Redis Cluster</li>
+            <li>CDN 활용</li>
+            <li>Application Level Caching</li>
+          </ul>
+
+          <h3>데이터베이스 최적화</h3>
+          <ul>
+            <li>인덱스 최적화</li>
+            <li>쿼리 튜닝</li>
+            <li>Read Replica 활용</li>
+          </ul>
+
+          <h2>모니터링 및 로깅</h2>
+
+          <h3>모니터링</h3>
+          <ul>
+            <li><strong>Infrastructure</strong>: Prometheus + Grafana</li>
+            <li><strong>Application</strong>: Spring Boot Actuator</li>
+            <li><strong>Custom Metrics</strong>: 비즈니스 지표 추적</li>
+          </ul>
+
+          <h3>로깅</h3>
+          <ul>
+            <li><strong>Centralized Logging</strong>: ELK Stack</li>
+            <li><strong>Structured Logging</strong>: JSON 형태</li>
+            <li><strong>Log Aggregation</strong>: Fluentd</li>
+          </ul>
+
+          <h3>알림</h3>
+          <ul>
+            <li><strong>Slack Integration</strong>: 실시간 알림</li>
+            <li><strong>Email</strong>: 중요 이벤트 알림</li>
+            <li><strong>SMS</strong>: 긴급 장애 알림</li>
+          </ul>
+
+          <h2>배포 전략</h2>
+
+          <h3>CI/CD Pipeline</h3>
+          <ul>
+            <li><strong>Source Control</strong>: GitHub</li>
+            <li><strong>Build</strong>: GitHub Actions</li>
+            <li><strong>Test</strong>: 자동화된 테스트 실행</li>
+            <li><strong>Deploy</strong>: Blue-Green Deployment</li>
+          </ul>
+
+          <h3>배포 방식</h3>
+          <ul>
+            <li><strong>Blue-Green</strong>: 무중단 배포</li>
+            <li><strong>Rolling Update</strong>: 점진적 업데이트</li>
+            <li><strong>Canary</strong>: 일부 트래픽으로 테스트</li>
+          </ul>
+
+          <h2>성능 목표</h2>
+
+          <h3>응답 시간</h3>
+          <ul>
+            <li>API 응답: 95% < 200ms</li>
+            <li>페이지 로드: 95% < 2초</li>
+            <li>데이터베이스 쿼리: 95% < 50ms</li>
+          </ul>
+
+          <h3>가용성</h3>
+          <ul>
+            <li>시스템 가용성: 99.9%</li>
+            <li>데이터 백업: 일일 백업</li>
+            <li>재해 복구: RTO < 4시간, RPO < 1시간</li>
+          </ul>
+
+          <h3>처리량</h3>
+          <ul>
+            <li>동시 사용자: 10,000명</li>
+            <li>초당 요청: 1,000 RPS</li>
+            <li>데이터베이스 연결: 1,000개</li>
+          </ul>
+
+          <h2>결론</h2>
+
+          <p>
+            Motoo 프로젝트의 아키텍처는 <strong>확장성</strong>,
+            <strong>안정성</strong>, <strong>유지보수성</strong>을 핵심 가치로
+            설계되었습니다. 마이크로서비스 패턴을 통해 각 서비스의 독립성을
+            보장하고, 현대적인 기술 스택을 활용하여 높은 성능과 안정성을
+            제공합니다.
+          </p>
+
+          <p>
+            앞으로의 개발 과정에서 이러한 아키텍처 원칙을 지키면서, 지속적인
+            개선과 최적화를 통해 더 나은 시스템을 구축해 나갈 것입니다.
+          </p>
         </article>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="fas fa-rocket"></i>
-                    <span>Motoo Tech Blog</span>
-                </div>
-                <div class="footer-links">
-                    <a href="https://github.com/mo2-motoo" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:team@motoo.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Motoo Team. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <i class="fas fa-rocket"></i>
+            <span>Motoo Tech Blog</span>
+          </div>
+          <div class="footer-links">
+            <a href="https://github.com/mo2-motoo" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:team@motoo.com">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../assets/js/main.js"></script>
-</body>
+  </body>
 </html>
