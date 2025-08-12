@@ -1,389 +1,283 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motoo - 프로젝트 문서화</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/sidebar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <!-- 사이드바 -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h1 class="logo">
-                    <i class="fas fa-rocket"></i>
-                    Motoo
-                </h1>
-                <button class="sidebar-toggle" id="sidebarToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+      <!-- 사이드바 -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h1 class="logo">
+            <i class="fas fa-rocket"></i>
+            Motoo
+          </h1>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <a href="index.html" class="nav-item active">
+              <i class="fas fa-home"></i>
+              <span>🏠 Home</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-building"></i>
+              🏗️ 아키텍처
+            </h3>
+            <div class="nav-section-content">
+              <a href="architecture/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+              <a href="architecture/system-architecture.html" class="nav-item">
+                <i class="fas fa-sitemap"></i>
+                <span>📊 시스템 아키텍처</span>
+              </a>
             </div>
-            
-            <nav class="sidebar-nav">
-                <div class="nav-section">
-                    <a href="index.html" class="nav-item active">
-                        <i class="fas fa-home"></i>
-                        <span>🏠 Home</span>
-                    </a>
-                </div>
+          </div>
 
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-building"></i>
-                        🏗️ 아키텍처
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="architecture/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="architecture/system-architecture.html" class="nav-item">
-                            <i class="fas fa-sitemap"></i>
-                            <span>📊 시스템 아키텍처</span>
-                        </a>
-                        <a href="architecture/database-erd.html" class="nav-item">
-                            <i class="fas fa-database"></i>
-                            <span>🗄️ 데이터베이스 ERD</span>
-                        </a>
-                        <a href="architecture/tech-stack.html" class="nav-item">
-                            <i class="fas fa-tools"></i>
-                            <span>🔧 기술 스택</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-bullseye"></i>
-                        🎯 도메인 설명
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="domain/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="domain/domain-overview.html" class="nav-item">
-                            <i class="fas fa-clipboard-list"></i>
-                            <span>📋 도메인 개요</span>
-                        </a>
-                        <a href="domain/user.html" class="nav-item">
-                            <i class="fas fa-user"></i>
-                            <span>👤 사용자 관리</span>
-                        </a>
-                        <a href="domain/stock.html" class="nav-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>🏬 종목(Stock)</span>
-                        </a>
-                        <a href="domain/order.html" class="nav-item">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>📦 주문(Order)</span>
-                        </a>
-                        <a href="domain/portfolio.html" class="nav-item">
-                            <i class="fas fa-folder"></i>
-                            <span>📁 포트폴리오</span>
-                        </a>
-                        <a href="domain/transaction.html" class="nav-item">
-                            <i class="fas fa-credit-card"></i>
-                            <span>💳 거래내역(Transaction)</span>
-                        </a>
-                        <a href="domain/token.html" class="nav-item">
-                            <i class="fas fa-key"></i>
-                            <span>🔑 토큰(Token)</span>
-                        </a>
-                        <a href="domain/execution.html" class="nav-item">
-                            <i class="fas fa-check"></i>
-                            <span>✅ 체결(Execution)</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-code"></i>
-                        💻 구현 방식
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="implementation/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="implementation/user-service.html" class="nav-item">
-                            <i class="fas fa-user-cog"></i>
-                            <span>👤 사용자 서비스 구현</span>
-                        </a>
-                        <a href="implementation/stock-service.html" class="nav-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>🏬 종목 서비스 구현</span>
-                        </a>
-                        <a href="implementation/order-service.html" class="nav-item">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span>📦 주문 서비스 구현</span>
-                        </a>
-                        <a href="implementation/portfolio-service.html" class="nav-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>📁 포트폴리오 서비스 구현</span>
-                        </a>
-                        <a href="implementation/transaction-service.html" class="nav-item">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span>💳 거래내역 서비스 구현</span>
-                        </a>
-                        <a href="implementation/token-service.html" class="nav-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>🔑 토큰 서비스 구현</span>
-                        </a>
-                        <a href="implementation/execution-service.html" class="nav-item">
-                            <i class="fas fa-handshake"></i>
-                            <span>✅ 체결 서비스 구현</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-flask"></i>
-                        🧪 테스트
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="testing/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="testing/unit-tests.html" class="nav-item">
-                            <i class="fas fa-microscope"></i>
-                            <span>🔬 단위 테스트</span>
-                        </a>
-                        <a href="testing/integration-tests.html" class="nav-item">
-                            <i class="fas fa-link"></i>
-                            <span>🔗 통합 테스트</span>
-                        </a>
-                        <a href="testing/e2e-tests.html" class="nav-item">
-                            <i class="fas fa-globe"></i>
-                            <span>🌐 E2E 테스트</span>
-                        </a>
-                        <a href="testing/strategy.html" class="nav-item">
-                            <i class="fas fa-clipboard-check"></i>
-                            <span>📝 테스트 전략</span>
-                        </a>
-                        <a href="testing/coverage.html" class="nav-item">
-                            <i class="fas fa-bullseye"></i>
-                            <span>🎯 테스트 커버리지</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        🚨 문제 해결
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="troubleshooting/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="troubleshooting/performance-issues.html" class="nav-item">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>⚡ 성능 최적화</span>
-                        </a>
-                        <a href="troubleshooting/database-problems.html" class="nav-item">
-                            <i class="fas fa-database"></i>
-                            <span>🗄️ 데이터베이스 문제</span>
-                        </a>
-                        <a href="troubleshooting/server-issues.html" class="nav-item">
-                            <i class="fas fa-server"></i>
-                            <span>🔧 서버 장애 대응</span>
-                        </a>
-                        <a href="troubleshooting/known-bugs.html" class="nav-item">
-                            <i class="fas fa-bug"></i>
-                            <span>🐛 알려진 버그</span>
-                        </a>
-                        <a href="troubleshooting/incident-response.html" class="nav-item">
-                            <i class="fas fa-phone"></i>
-                            <span>📞 장애 대응 절차</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-chart-line"></i>
-                        📈 부하 테스트
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="load-testing/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="load-testing/scenarios.html" class="nav-item">
-                            <i class="fas fa-clipboard-list"></i>
-                            <span>📋 테스트 시나리오</span>
-                        </a>
-                        <a href="load-testing/results.html" class="nav-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>📊 테스트 결과</span>
-                        </a>
-                        <a href="load-testing/tools-setup.html" class="nav-item">
-                            <i class="fas fa-wrench"></i>
-                            <span>🛠️ 테스트 도구 설정</span>
-                        </a>
-                        <a href="load-testing/monitoring.html" class="nav-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>📈 성능 모니터링</span>
-                        </a>
-                        <a href="load-testing/performance-goals.html" class="nav-item">
-                            <i class="fas fa-bullseye"></i>
-                            <span>🎯 성능 목표</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-link"></i>
-                        🔗 빠른 링크
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="quick-links/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="quick-links/getting-started.html" class="nav-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>🚀 시작하기</span>
-                        </a>
-                        <a href="quick-links/faq.html" class="nav-item">
-                            <i class="fas fa-question-circle"></i>
-                            <span>❓ FAQ</span>
-                        </a>
-                        <a href="quick-links/changelog.html" class="nav-item">
-                            <i class="fas fa-history"></i>
-                            <span>📝 변경 사항</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-section">
-                    <h3 class="nav-section-title">
-                        <i class="fas fa-phone"></i>
-                        📞 문의
-                    </h3>
-                    <div class="nav-section-content">
-                        <a href="contact/overview.html" class="nav-item">
-                            <i class="fas fa-book"></i>
-                            <span>📚 개요</span>
-                        </a>
-                        <a href="contact/development-team.html" class="nav-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>📧 개발팀 연락처</span>
-                        </a>
-                        <a href="contact/support-request.html" class="nav-item">
-                            <i class="fas fa-life-ring"></i>
-                            <span>🆘 지원 요청</span>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-
-        <!-- 메인 콘텐츠 -->
-        <main class="main-content">
-            <header class="content-header">
-                <div class="header-content">
-                    <h1 class="page-title">Motoo 프로젝트 문서화</h1>
-                    <p class="page-subtitle">웹사이트 구현과 동작의 완전한 가이드</p>
-                </div>
-            </header>
-
-            <div class="content-body">
-                <section class="hero-section">
-                    <div class="hero-content">
-                        <h2>🚀 Motoo 프로젝트에 오신 것을 환영합니다</h2>
-                        <p>이 문서는 Motoo 프로젝트의 전반적인 아키텍처, 구현 방식, 테스트 전략, 그리고 문제 해결 방법을 포함한 종합적인 가이드입니다.</p>
-                    </div>
-                </section>
-
-                <section class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3>🏗️ 아키텍처</h3>
-                        <p>시스템 전체 구조와 데이터베이스 설계, 기술 스택에 대한 상세한 설명</p>
-                        <a href="architecture/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>🎯 도메인 설명</h3>
-                        <p>사용자, 종목, 주문, 포트폴리오 등 핵심 비즈니스 도메인에 대한 설명</p>
-                        <a href="domain/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>💻 구현 방식</h3>
-                        <p>각 서비스의 구체적인 구현 방법과 핵심 로직에 대한 상세 가이드</p>
-                        <a href="implementation/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <h3>🧪 테스트</h3>
-                        <p>단위 테스트부터 E2E 테스트까지 포괄적인 테스트 전략과 방법론</p>
-                        <a href="testing/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <h3>🚨 문제 해결</h3>
-                        <p>자주 발생하는 문제들과 해결 방법, 장애 대응 절차에 대한 가이드</p>
-                        <a href="troubleshooting/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>📈 부하 테스트</h3>
-                        <p>시스템 성능 검증을 위한 부하 테스트 시나리오와 결과 분석</p>
-                        <a href="load-testing/overview.html" class="feature-link">자세히 보기 <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </section>
-
-                <section class="quick-start">
-                    <h2>🚀 빠른 시작</h2>
-                    <div class="quick-start-content">
-                        <p>프로젝트를 처음 접하시는 분들을 위한 빠른 시작 가이드입니다.</p>
-                        <div class="quick-start-buttons">
-                            <a href="quick-links/getting-started.html" class="btn btn-primary">
-                                <i class="fas fa-rocket"></i>
-                                시작하기
-                            </a>
-                            <a href="architecture/overview.html" class="btn btn-secondary">
-                                <i class="fas fa-building"></i>
-                                아키텍처 살펴보기
-                            </a>
-                        </div>
-                    </div>
-                </section>
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-bullseye"></i>
+              🎯 도메인 설명
+            </h3>
+            <div class="nav-section-content">
+              <a href="domain/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
             </div>
-        </main>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-code"></i>
+              💻 구현 방식
+            </h3>
+            <div class="nav-section-content">
+              <a href="implementation/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-flask"></i>
+              🧪 테스트
+            </h3>
+            <div class="nav-section-content">
+              <a href="testing/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-exclamation-triangle"></i>
+              🚨 문제 해결
+            </h3>
+            <div class="nav-section-content">
+              <a href="troubleshooting/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-chart-line"></i>
+              📈 부하 테스트
+            </h3>
+            <div class="nav-section-content">
+              <a href="load-testing/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-link"></i>
+              🔗 빠른 링크
+            </h3>
+            <div class="nav-section-content">
+              <a href="quick-links/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+              <a href="quick-links/getting-started.html" class="nav-item">
+                <i class="fas fa-rocket"></i>
+                <span>🚀 시작하기</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">
+              <i class="fas fa-phone"></i>
+              📞 문의
+            </h3>
+            <div class="nav-section-content">
+              <a href="contact/overview.html" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>📚 개요</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- 메인 콘텐츠 -->
+      <main class="main-content">
+        <header class="content-header">
+          <div class="header-content">
+            <h1 class="page-title">Motoo 프로젝트 문서화</h1>
+            <p class="page-subtitle">웹사이트 구현과 동작의 완전한 가이드</p>
+          </div>
+        </header>
+
+        <div class="content-body">
+          <section class="hero-section">
+            <div class="hero-content">
+              <h2>🚀 Motoo 프로젝트에 오신 것을 환영합니다</h2>
+              <p>
+                이 문서는 Motoo 프로젝트의 전반적인 아키텍처, 구현 방식, 테스트
+                전략, 그리고 문제 해결 방법을 포함한 종합적인 가이드입니다.
+              </p>
+            </div>
+          </section>
+
+          <section class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3>🏗️ 아키텍처</h3>
+              <p>
+                시스템 전체 구조와 데이터베이스 설계, 기술 스택에 대한 상세한
+                설명
+              </p>
+              <a href="architecture/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3>🎯 도메인 설명</h3>
+              <p>
+                사용자, 종목, 주문, 포트폴리오 등 핵심 비즈니스 도메인에 대한
+                설명
+              </p>
+              <a href="domain/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>💻 구현 방식</h3>
+              <p>
+                각 서비스의 구체적인 구현 방법과 핵심 로직에 대한 상세 가이드
+              </p>
+              <a href="implementation/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <h3>🧪 테스트</h3>
+              <p>
+                단위 테스트부터 E2E 테스트까지 포괄적인 테스트 전략과 방법론
+              </p>
+              <a href="testing/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <h3>🚨 문제 해결</h3>
+              <p>
+                자주 발생하는 문제들과 해결 방법, 장애 대응 절차에 대한 가이드
+              </p>
+              <a href="troubleshooting/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>📈 부하 테스트</h3>
+              <p>시스템 성능 검증을 위한 부하 테스트 시나리오와 결과 분석</p>
+              <a href="load-testing/overview.html" class="feature-link"
+                >자세히 보기 <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </section>
+
+          <section class="quick-start">
+            <h2>🚀 빠른 시작</h2>
+            <div class="quick-start-content">
+              <p>
+                프로젝트를 처음 접하시는 분들을 위한 빠른 시작 가이드입니다.
+              </p>
+              <div class="quick-start-buttons">
+                <a
+                  href="quick-links/getting-started.html"
+                  class="btn btn-primary"
+                >
+                  <i class="fas fa-rocket"></i>
+                  시작하기
+                </a>
+                <a href="architecture/overview.html" class="btn btn-secondary">
+                  <i class="fas fa-building"></i>
+                  아키텍처 살펴보기
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
 
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>
