@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아키텍처 개요 - Motoo 프로젝트 문서화</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 사이드바 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">
+                    <i class="fas fa-rocket"></i>
+                    Motoo
+                </h1>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>🏠 Home</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-building"></i>
+                        🏗️ 아키텍처
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="overview.html" class="nav-item active">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="system-architecture.html" class="nav-item">
+                            <i class="fas fa-sitemap"></i>
+                            <span>📊 시스템 아키텍처</span>
+                        </a>
+                        <a href="database-erd.html" class="nav-item">
+                            <i class="fas fa-database"></i>
+                            <span>🗄️ 데이터베이스 ERD</span>
+                        </a>
+                        <a href="tech-stack.html" class="nav-item">
+                            <i class="fas fa-tools"></i>
+                            <span>🔧 기술 스택</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-bullseye"></i>
+                        🎯 도메인 설명
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../domain/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../domain/domain-overview.html" class="nav-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>📋 도메인 개요</span>
+                        </a>
+                        <a href="../domain/user.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>👤 사용자 관리</span>
+                        </a>
+                        <a href="../domain/stock.html" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>🏬 종목(Stock)</span>
+                        </a>
+                        <a href="../domain/order.html" class="nav-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>📦 주문(Order)</span>
+                        </a>
+                        <a href="../domain/portfolio.html" class="nav-item">
+                            <i class="fas fa-folder"></i>
+                            <span>📁 포트폴리오</span>
+                        </a>
+                        <a href="../domain/transaction.html" class="nav-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>💳 거래내역(Transaction)</span>
+                        </a>
+                        <a href="../domain/token.html" class="nav-item">
+                            <i class="fas fa-key"></i>
+                            <span>🔑 토큰(Token)</span>
+                        </a>
+                        <a href="../domain/execution.html" class="nav-item">
+                            <i class="fas fa-check"></i>
+                            <span>✅ 체결(Execution)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-code"></i>
+                        💻 구현 방식
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../implementation/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../implementation/user-service.html" class="nav-item">
+                            <i class="fas fa-user-cog"></i>
+                            <span>👤 사용자 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/stock-service.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>🏬 종목 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/order-service.html" class="nav-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>📦 주문 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/portfolio-service.html" class="nav-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>📁 포트폴리오 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/transaction-service.html" class="nav-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>💳 거래내역 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/token-service.html" class="nav-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>🔑 토큰 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/execution-service.html" class="nav-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>✅ 체결 서비스 구현</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-flask"></i>
+                        🧪 테스트
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../testing/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../testing/unit-tests.html" class="nav-item">
+                            <i class="fas fa-microscope"></i>
+                            <span>🔬 단위 테스트</span>
+                        </a>
+                        <a href="../testing/integration-tests.html" class="nav-item">
+                            <i class="fas fa-link"></i>
+                            <span>🔗 통합 테스트</span>
+                        </a>
+                        <a href="../testing/e2e-tests.html" class="nav-item">
+                            <i class="fas fa-globe"></i>
+                            <span>🌐 E2E 테스트</span>
+                        </a>
+                        <a href="../testing/strategy.html" class="nav-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>📝 테스트 전략</span>
+                        </a>
+                        <a href="../testing/coverage.html" class="nav-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>🎯 테스트 커버리지</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        🚨 문제 해결
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../troubleshooting/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../troubleshooting/performance-issues.html" class="nav-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>⚡ 성능 최적화</span>
+                        </a>
+                        <a href="../troubleshooting/database-problems.html" class="nav-item">
+                            <i class="fas fa-database"></i>
+                            <span>🗄️ 데이터베이스 문제</span>
+                        </a>
+                        <a href="../troubleshooting/server-issues.html" class="nav-item">
+                            <i class="fas fa-server"></i>
+                            <span>🔧 서버 장애 대응</span>
+                        </a>
+                        <a href="../troubleshooting/known-bugs.html" class="nav-item">
+                            <i class="fas fa-bug"></i>
+                            <span>🐛 알려진 버그</span>
+                        </a>
+                        <a href="../troubleshooting/incident-response.html" class="nav-item">
+                            <i class="fas fa-phone"></i>
+                            <span>📞 장애 대응 절차</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-chart-line"></i>
+                        📈 부하 테스트
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../load-testing/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../load-testing/scenarios.html" class="nav-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>📋 테스트 시나리오</span>
+                        </a>
+                        <a href="../load-testing/results.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>📊 테스트 결과</span>
+                        </a>
+                        <a href="../load-testing/tools-setup.html" class="nav-item">
+                            <i class="fas fa-wrench"></i>
+                            <span>🛠️ 테스트 도구 설정</span>
+                        </a>
+                        <a href="../load-testing/monitoring.html" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>📈 성능 모니터링</span>
+                        </a>
+                        <a href="../load-testing/performance-goals.html" class="nav-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>🎯 성능 목표</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-link"></i>
+                        🔗 빠른 링크
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../quick-links/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../quick-links/getting-started.html" class="nav-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>🚀 시작하기</span>
+                        </a>
+                        <a href="../quick-links/faq.html" class="nav-item">
+                            <i class="fas fa-question-circle"></i>
+                            <span>❓ FAQ</span>
+                        </a>
+                        <a href="../quick-links/changelog.html" class="nav-item">
+                            <i class="fas fa-history"></i>
+                            <span>📝 변경 사항</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-phone"></i>
+                        📞 문의
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../contact/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../contact/development-team.html" class="nav-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>📧 개발팀 연락처</span>
+                        </a>
+                        <a href="../contact/support-request.html" class="nav-item">
+                            <i class="fas fa-life-ring"></i>
+                            <span>🆘 지원 요청</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-content">
+                    <h1 class="page-title">🏗️ 아키텍처 개요</h1>
+                    <p class="page-subtitle">Motoo 프로젝트의 전체 시스템 구조와 설계 원칙</p>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <section class="content-section">
+                    <h2>📋 시스템 개요</h2>
+                    <p>Motoo는 주식 거래 플랫폼으로, 사용자들이 주식을 거래하고 포트폴리오를 관리할 수 있는 웹 애플리케이션입니다. 시스템은 마이크로서비스 아키텍처를 기반으로 설계되어 확장성과 유지보수성을 고려했습니다.</p>
+                    
+                    <div class="info-card">
+                        <h3>🎯 핵심 목표</h3>
+                        <ul>
+                            <li><strong>확장성:</strong> 사용자 증가에 따른 시스템 확장</li>
+                            <li><strong>안정성:</strong> 99.9% 이상의 가용성 보장</li>
+                            <li><strong>성능:</strong> 빠른 응답 시간과 처리 속도</li>
+                            <li><strong>보안:</strong> 사용자 데이터 및 거래 정보 보호</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🏛️ 아키텍처 원칙</h2>
+                    <div class="principles-grid">
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h3>마이크로서비스</h3>
+                            <p>독립적인 서비스로 분리하여 개발, 배포, 확장을 용이하게 합니다.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>보안 우선</h3>
+                            <p>모든 레벨에서 보안을 고려하여 설계하고 구현합니다.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3>성능 최적화</h3>
+                            <p>응답 시간과 처리량을 최적화하여 사용자 경험을 향상시킵니다.</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h3>무상태 설계</h3>
+                            <p>서버 간 상태 공유 없이 독립적으로 동작하도록 설계합니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔧 기술 스택</h2>
+                    <div class="tech-stack-grid">
+                        <div class="tech-category">
+                            <h3>Frontend</h3>
+                            <ul>
+                                <li><strong>React:</strong> 사용자 인터페이스 구축</li>
+                                <li><strong>TypeScript:</strong> 타입 안정성 확보</li>
+                                <li><strong>Tailwind CSS:</strong> 스타일링</li>
+                                <li><strong>Redux Toolkit:</strong> 상태 관리</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>Backend</h3>
+                            <ul>
+                                <li><strong>Spring Boot:</strong> REST API 서버</li>
+                                <li><strong>Java 17:</strong> 프로그래밍 언어</li>
+                                <li><strong>Spring Security:</strong> 인증 및 권한 관리</li>
+                                <li><strong>JPA/Hibernate:</strong> 데이터 접근 계층</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>Database</h3>
+                            <ul>
+                                <li><strong>PostgreSQL:</strong> 메인 데이터베이스</li>
+                                <li><strong>Redis:</strong> 캐싱 및 세션 저장</li>
+                                <li><strong>MongoDB:</strong> 로그 및 분석 데이터</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>Infrastructure</h3>
+                            <ul>
+                                <li><strong>Docker:</strong> 컨테이너화</li>
+                                <li><strong>Kubernetes:</strong> 오케스트레이션</li>
+                                <li><strong>AWS:</strong> 클라우드 인프라</li>
+                                <li><strong>Nginx:</strong> 리버스 프록시</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📊 시스템 구성도</h2>
+                    <div class="architecture-diagram">
+                        <div class="diagram-layer">
+                            <h3>Presentation Layer</h3>
+                            <div class="diagram-components">
+                                <div class="component">React Frontend</div>
+                                <div class="component">Mobile App</div>
+                            </div>
+                        </div>
+                        
+                        <div class="diagram-layer">
+                            <h3>API Gateway</h3>
+                            <div class="diagram-components">
+                                <div class="component">Nginx</div>
+                                <div class="component">Spring Cloud Gateway</div>
+                            </div>
+                        </div>
+                        
+                        <div class="diagram-layer">
+                            <h3>Microservices</h3>
+                            <div class="diagram-components">
+                                <div class="component">User Service</div>
+                                <div class="component">Stock Service</div>
+                                <div class="component">Order Service</div>
+                                <div class="component">Portfolio Service</div>
+                                <div class="component">Transaction Service</div>
+                            </div>
+                        </div>
+                        
+                        <div class="diagram-layer">
+                            <h3>Data Layer</h3>
+                            <div class="diagram-components">
+                                <div class="component">PostgreSQL</div>
+                                <div class="component">Redis</div>
+                                <div class="component">MongoDB</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔗 서비스 간 통신</h2>
+                    <div class="communication-info">
+                        <h3>동기 통신</h3>
+                        <ul>
+                            <li><strong>REST API:</strong> HTTP 기반 동기 통신</li>
+                            <li><strong>gRPC:</strong> 고성능 RPC 통신</li>
+                        </ul>
+                        
+                        <h3>비동기 통신</h3>
+                        <ul>
+                            <li><strong>Apache Kafka:</strong> 메시지 브로커</li>
+                            <li><strong>Event Sourcing:</strong> 이벤트 기반 아키텍처</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🛡️ 보안 아키텍처</h2>
+                    <div class="security-layers">
+                        <div class="security-layer">
+                            <h3>네트워크 보안</h3>
+                            <ul>
+                                <li>HTTPS/TLS 암호화</li>
+                                <li>VPC 및 서브넷 분리</li>
+                                <li>WAF (Web Application Firewall)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="security-layer">
+                            <h3>애플리케이션 보안</h3>
+                            <ul>
+                                <li>JWT 토큰 기반 인증</li>
+                                <li>OAuth 2.0 / OIDC</li>
+                                <li>입력값 검증 및 Sanitization</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="security-layer">
+                            <h3>데이터 보안</h3>
+                            <ul>
+                                <li>데이터베이스 암호화</li>
+                                <li>개인정보 마스킹</li>
+                                <li>백업 및 복구 정책</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📈 확장성 전략</h2>
+                    <div class="scalability-strategies">
+                        <div class="strategy">
+                            <h3>수평 확장 (Horizontal Scaling)</h3>
+                            <p>서비스 인스턴스를 여러 개 실행하여 부하를 분산시킵니다.</p>
+                        </div>
+                        
+                        <div class="strategy">
+                            <h3>데이터베이스 샤딩</h3>
+                            <p>데이터를 여러 데이터베이스에 분산하여 성능을 향상시킵니다.</p>
+                        </div>
+                        
+                        <div class="strategy">
+                            <h3>캐싱 전략</h3>
+                            <p>Redis를 활용한 다층 캐싱으로 응답 시간을 단축합니다.</p>
+                        </div>
+                        
+                        <div class="strategy">
+                            <h3>CDN 활용</h3>
+                            <p>정적 리소스를 CDN을 통해 전 세계에 분산 배포합니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔍 모니터링 및 로깅</h2>
+                    <div class="monitoring-stack">
+                        <div class="monitoring-tool">
+                            <h3>애플리케이션 모니터링</h3>
+                            <ul>
+                                <li>Prometheus + Grafana</li>
+                                <li>Spring Boot Actuator</li>
+                                <li>Custom Metrics</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="monitoring-tool">
+                            <h3>로그 관리</h3>
+                            <ul>
+                                <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+                                <li>Structured Logging</li>
+                                <li>Log Aggregation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="monitoring-tool">
+                            <h3>알림 시스템</h3>
+                            <ul>
+                                <li>Slack Integration</li>
+                                <li>Email Notifications</li>
+                                <li>SMS Alerts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🚀 배포 전략</h2>
+                    <div class="deployment-info">
+                        <h3>CI/CD 파이프라인</h3>
+                        <ol>
+                            <li><strong>코드 커밋:</strong> Git 저장소에 코드 푸시</li>
+                            <li><strong>자동 빌드:</strong> Jenkins/GitHub Actions를 통한 빌드</li>
+                            <li><strong>테스트 실행:</strong> 단위, 통합, E2E 테스트</li>
+                            <li><strong>이미지 빌드:</strong> Docker 이미지 생성</li>
+                            <li><strong>배포:</strong> Kubernetes를 통한 자동 배포</li>
+                        </ol>
+                        
+                        <h3>배포 방식</h3>
+                        <ul>
+                            <li><strong>Blue-Green Deployment:</strong> 무중단 배포</li>
+                            <li><strong>Rolling Update:</strong> 점진적 업데이트</li>
+                            <li><strong>Canary Deployment:</strong> 소규모 테스트 배포</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="navigation-links">
+                    <a href="system-architecture.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        시스템 아키텍처 상세 보기
+                    </a>
+                    <a href="tech-stack.html" class="btn btn-secondary">
+                        <i class="fas fa-tools"></i>
+                        기술 스택 상세 보기
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

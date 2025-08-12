@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시작하기 - Motoo 프로젝트 문서화</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 사이드바 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">
+                    <i class="fas fa-rocket"></i>
+                    Motoo
+                </h1>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <a href="../index.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>🏠 Home</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-building"></i>
+                        🏗️ 아키텍처
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../architecture/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../architecture/system-architecture.html" class="nav-item">
+                            <i class="fas fa-sitemap"></i>
+                            <span>📊 시스템 아키텍처</span>
+                        </a>
+                        <a href="../architecture/database-erd.html" class="nav-item">
+                            <i class="fas fa-database"></i>
+                            <span>🗄️ 데이터베이스 ERD</span>
+                        </a>
+                        <a href="../architecture/tech-stack.html" class="nav-item">
+                            <i class="fas fa-tools"></i>
+                            <span>🔧 기술 스택</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-bullseye"></i>
+                        🎯 도메인 설명
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../domain/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../domain/domain-overview.html" class="nav-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>📋 도메인 개요</span>
+                        </a>
+                        <a href="../domain/user.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>👤 사용자 관리</span>
+                        </a>
+                        <a href="../domain/stock.html" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>🏬 종목(Stock)</span>
+                        </a>
+                        <a href="../domain/order.html" class="nav-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>📦 주문(Order)</span>
+                        </a>
+                        <a href="../domain/portfolio.html" class="nav-item">
+                            <i class="fas fa-folder"></i>
+                            <span>📁 포트폴리오</span>
+                        </a>
+                        <a href="../domain/transaction.html" class="nav-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>💳 거래내역(Transaction)</span>
+                        </a>
+                        <a href="../domain/token.html" class="nav-item">
+                            <i class="fas fa-key"></i>
+                            <span>🔑 토큰(Token)</span>
+                        </a>
+                        <a href="../domain/execution.html" class="nav-item">
+                            <i class="fas fa-check"></i>
+                            <span>✅ 체결(Execution)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-code"></i>
+                        💻 구현 방식
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../implementation/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../implementation/user-service.html" class="nav-item">
+                            <i class="fas fa-user-cog"></i>
+                            <span>👤 사용자 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/stock-service.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>🏬 종목 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/order-service.html" class="nav-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>📦 주문 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/portfolio-service.html" class="nav-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>📁 포트폴리오 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/transaction-service.html" class="nav-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>💳 거래내역 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/token-service.html" class="nav-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>🔑 토큰 서비스 구현</span>
+                        </a>
+                        <a href="../implementation/execution-service.html" class="nav-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>✅ 체결 서비스 구현</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-flask"></i>
+                        🧪 테스트
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../testing/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../testing/unit-tests.html" class="nav-item">
+                            <i class="fas fa-microscope"></i>
+                            <span>🔬 단위 테스트</span>
+                        </a>
+                        <a href="../testing/integration-tests.html" class="nav-item">
+                            <i class="fas fa-link"></i>
+                            <span>🔗 통합 테스트</span>
+                        </a>
+                        <a href="../testing/e2e-tests.html" class="nav-item">
+                            <i class="fas fa-globe"></i>
+                            <span>🌐 E2E 테스트</span>
+                        </a>
+                        <a href="../testing/strategy.html" class="nav-item">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>📝 테스트 전략</span>
+                        </a>
+                        <a href="../testing/coverage.html" class="nav-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>🎯 테스트 커버리지</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        🚨 문제 해결
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../troubleshooting/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../troubleshooting/performance-issues.html" class="nav-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>⚡ 성능 최적화</span>
+                        </a>
+                        <a href="../troubleshooting/database-problems.html" class="nav-item">
+                            <i class="fas fa-database"></i>
+                            <span>🗄️ 데이터베이스 문제</span>
+                        </a>
+                        <a href="../troubleshooting/server-issues.html" class="nav-item">
+                            <i class="fas fa-server"></i>
+                            <span>🔧 서버 장애 대응</span>
+                        </a>
+                        <a href="../troubleshooting/known-bugs.html" class="nav-item">
+                            <i class="fas fa-bug"></i>
+                            <span>🐛 알려진 버그</span>
+                        </a>
+                        <a href="../troubleshooting/incident-response.html" class="nav-item">
+                            <i class="fas fa-phone"></i>
+                            <span>📞 장애 대응 절차</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-chart-line"></i>
+                        📈 부하 테스트
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../load-testing/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../load-testing/scenarios.html" class="nav-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>📋 테스트 시나리오</span>
+                        </a>
+                        <a href="../load-testing/results.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>📊 테스트 결과</span>
+                        </a>
+                        <a href="../load-testing/tools-setup.html" class="nav-item">
+                            <i class="fas fa-wrench"></i>
+                            <span>🛠️ 테스트 도구 설정</span>
+                        </a>
+                        <a href="../load-testing/monitoring.html" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>📈 성능 모니터링</span>
+                        </a>
+                        <a href="../load-testing/performance-goals.html" class="nav-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span>🎯 성능 목표</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-link"></i>
+                        🔗 빠른 링크
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="getting-started.html" class="nav-item active">
+                            <i class="fas fa-rocket"></i>
+                            <span>🚀 시작하기</span>
+                        </a>
+                        <a href="faq.html" class="nav-item">
+                            <i class="fas fa-question-circle"></i>
+                            <span>❓ FAQ</span>
+                        </a>
+                        <a href="changelog.html" class="nav-item">
+                            <i class="fas fa-history"></i>
+                            <span>📝 변경 사항</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">
+                        <i class="fas fa-phone"></i>
+                        📞 문의
+                    </h3>
+                    <div class="nav-section-content">
+                        <a href="../contact/overview.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>📚 개요</span>
+                        </a>
+                        <a href="../contact/development-team.html" class="nav-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>📧 개발팀 연락처</span>
+                        </a>
+                        <a href="../contact/support-request.html" class="nav-item">
+                            <i class="fas fa-life-ring"></i>
+                            <span>🆘 지원 요청</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-content">
+                    <h1 class="page-title">🚀 시작하기</h1>
+                    <p class="page-subtitle">Motoo 프로젝트를 처음 접하는 분들을 위한 완전한 가이드</p>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <section class="content-section">
+                    <h2>👋 환영합니다!</h2>
+                    <p>Motoo 프로젝트 문서화 사이트에 오신 것을 환영합니다. 이 가이드는 프로젝트를 처음 접하시는 분들을 위해 단계별로 구성되어 있습니다.</p>
+                    
+                    <div class="info-card">
+                        <h3>🎯 이 가이드에서 배울 수 있는 것</h3>
+                        <ul>
+                            <li><strong>프로젝트 개요:</strong> Motoo가 무엇인지, 어떤 목적으로 만들어졌는지</li>
+                            <li><strong>시스템 구조:</strong> 전체 아키텍처와 각 구성 요소의 역할</li>
+                            <li><strong>핵심 기능:</strong> 주요 비즈니스 도메인과 기능들</li>
+                            <li><strong>기술 스택:</strong> 사용된 기술과 도구들</li>
+                            <li><strong>개발 환경:</strong> 로컬 개발 환경 설정 방법</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📋 학습 로드맵</h2>
+                    <div class="learning-roadmap">
+                        <div class="roadmap-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>프로젝트 개요 파악</h3>
+                                <p>Motoo가 무엇인지, 어떤 문제를 해결하는지 이해합니다.</p>
+                                <a href="../index.html" class="step-link">홈페이지 방문 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="roadmap-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>아키텍처 이해</h3>
+                                <p>전체 시스템 구조와 설계 원칙을 학습합니다.</p>
+                                <a href="../architecture/overview.html" class="step-link">아키텍처 개요 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="roadmap-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>도메인 학습</h3>
+                                <p>핵심 비즈니스 도메인과 기능들을 이해합니다.</p>
+                                <a href="../domain/overview.html" class="step-link">도메인 설명 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="roadmap-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>구현 방식 탐구</h3>
+                                <p>각 서비스의 구체적인 구현 방법을 학습합니다.</p>
+                                <a href="../implementation/overview.html" class="step-link">구현 방식 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="roadmap-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>테스트 전략 이해</h3>
+                                <p>품질 보증을 위한 테스트 방법론을 학습합니다.</p>
+                                <a href="../testing/overview.html" class="step-link">테스트 가이드 <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔧 개발 환경 설정</h2>
+                    <div class="setup-guide">
+                        <h3>필수 요구사항</h3>
+                        <div class="requirements-grid">
+                            <div class="requirement-item">
+                                <h4>Java 17</h4>
+                                <p>Spring Boot 애플리케이션 실행을 위한 Java 런타임</p>
+                                <a href="https://adoptium.net/" target="_blank" class="requirement-link">다운로드 <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            
+                            <div class="requirement-item">
+                                <h4>Node.js 18+</h4>
+                                <p>React 프론트엔드 개발을 위한 Node.js</p>
+                                <a href="https://nodejs.org/" target="_blank" class="requirement-link">다운로드 <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            
+                            <div class="requirement-item">
+                                <h4>PostgreSQL 14+</h4>
+                                <p>메인 데이터베이스</p>
+                                <a href="https://www.postgresql.org/download/" target="_blank" class="requirement-link">다운로드 <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            
+                            <div class="requirement-item">
+                                <h4>Redis 6+</h4>
+                                <p>캐싱 및 세션 저장소</p>
+                                <a href="https://redis.io/download" target="_blank" class="requirement-link">다운로드 <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            
+                            <div class="requirement-item">
+                                <h4>Docker</h4>
+                                <p>컨테이너화된 개발 환경</p>
+                                <a href="https://www.docker.com/products/docker-desktop" target="_blank" class="requirement-link">다운로드 <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            
+                            <div class="requirement-item">
+                                <h4>IDE</h4>
+                                <p>IntelliJ IDEA 또는 VS Code</p>
+                                <a href="https://www.jetbrains.com/idea/" target="_blank" class="requirement-link">IntelliJ <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🚀 빠른 시작</h2>
+                    <div class="quick-start-steps">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <h3>1. 프로젝트 클론</h3>
+                            </div>
+                            <div class="step-content">
+                                <pre><code>git clone https://github.com/your-org/motoo.git
+cd motoo</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>2. 환경 설정</h3>
+                            </div>
+                            <div class="step-content">
+                                <pre><code># 환경 변수 설정
+cp .env.example .env
+# 데이터베이스 설정 수정
+# Redis 설정 수정</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3>3. 데이터베이스 설정</h3>
+                            </div>
+                            <div class="step-content">
+                                <pre><code># PostgreSQL 실행
+docker run -d --name postgres \
+  -e POSTGRES_DB=motoo \
+  -e POSTGRES_USER=motoo \
+  -e POSTGRES_PASSWORD=password \
+  -p 5432:5432 postgres:14</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <h3>4. 애플리케이션 실행</h3>
+                            </div>
+                            <div class="step-content">
+                                <pre><code># 백엔드 실행
+./gradlew bootRun
+
+# 프론트엔드 실행
+cd frontend
+npm install
+npm start</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📚 추천 학습 순서</h2>
+                    <div class="learning-path">
+                        <div class="path-section">
+                            <h3>초급자 (1-2주)</h3>
+                            <ul>
+                                <li>프로젝트 개요 및 목적 이해</li>
+                                <li>기본 아키텍처 개념 학습</li>
+                                <li>주요 도메인 기능 파악</li>
+                                <li>개발 환경 설정 및 실행</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="path-section">
+                            <h3>중급자 (3-4주)</h3>
+                            <ul>
+                                <li>상세 아키텍처 분석</li>
+                                <li>각 서비스의 구현 방식 학습</li>
+                                <li>데이터베이스 설계 이해</li>
+                                <li>API 설계 및 구현 패턴 학습</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="path-section">
+                            <h3>고급자 (5-8주)</h3>
+                            <ul>
+                                <li>성능 최적화 기법 학습</li>
+                                <li>보안 구현 방식 이해</li>
+                                <li>테스트 전략 및 방법론</li>
+                                <li>배포 및 운영 방법 학습</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>🔍 자주 묻는 질문</h2>
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <h3>Q: Motoo는 어떤 기술 스택을 사용하나요?</h3>
+                            <p>A: Spring Boot (Java), React (TypeScript), PostgreSQL, Redis 등을 사용합니다. 자세한 내용은 <a href="../architecture/tech-stack.html">기술 스택</a> 페이지를 참고하세요.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 개발 환경 설정이 어려운데 도움을 받을 수 있나요?</h3>
+                            <p>A: 네, <a href="../contact/support-request.html">지원 요청</a> 페이지를 통해 개발팀에 문의하실 수 있습니다.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 프로젝트에 기여하고 싶은데 어떻게 해야 하나요?</h3>
+                            <p>A: GitHub 저장소의 CONTRIBUTING.md 파일을 참고하거나, <a href="../contact/development-team.html">개발팀 연락처</a>로 문의하세요.</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>Q: 문서가 업데이트되면 어떻게 알 수 있나요?</h3>
+                            <p>A: <a href="changelog.html">변경 사항</a> 페이지에서 최신 업데이트를 확인할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>📞 추가 도움</h2>
+                    <div class="help-resources">
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>문서</h3>
+                            <p>각 섹션별 상세한 문서를 제공합니다.</p>
+                            <a href="../index.html" class="resource-link">문서 보기</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>FAQ</h3>
+                            <p>자주 묻는 질문과 답변을 확인하세요.</p>
+                            <a href="faq.html" class="resource-link">FAQ 보기</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>문의</h3>
+                            <p>개발팀에 직접 문의하실 수 있습니다.</p>
+                            <a href="../contact/development-team.html" class="resource-link">문의하기</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-github"></i>
+                            </div>
+                            <h3>GitHub</h3>
+                            <p>소스 코드와 이슈를 확인하세요.</p>
+                            <a href="https://github.com/your-org/motoo" target="_blank" class="resource-link">GitHub 방문</a>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="navigation-links">
+                    <a href="../architecture/overview.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        아키텍처 학습하기
+                    </a>
+                    <a href="faq.html" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i>
+                        FAQ 보기
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
