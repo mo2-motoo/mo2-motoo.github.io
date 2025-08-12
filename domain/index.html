@@ -6,7 +6,7 @@
     <title>도메인 설계 - Motoo Tech Blog</title>
     <meta
       name="description"
-      content="Motoo 프로젝트의 비즈니스 도메인 설계, 엔티티 관계, 핵심 비즈니스 로직에 대한 상세한 설명"
+      content="Motoo 프로젝트의 비즈니스 도메인 설계, 엔티티 관계, 핵심 비즈니스 로직에 대한 포스트 모음"
     />
 
     <!-- Google Fonts -->
@@ -53,445 +53,235 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="container">
-        <!-- Page Header -->
-        <header class="page-header">
-          <h1 class="page-title">도메인 설계</h1>
-          <p class="page-description">
-            Motoo 프로젝트의 비즈니스 도메인 설계와 핵심 엔티티 관계에 대한 상세한 설명
+        <!-- Category Header -->
+        <header class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h1>🎯 도메인</h1>
+          <p class="category-description">
+            Motoo 프로젝트의 핵심 비즈니스 도메인 분석과 설계, 사용자 관리, 종목, 주문, 포트폴리오 등 주요 엔티티와 비즈니스 로직을 다룹니다.
           </p>
         </header>
 
-        <!-- Domain Overview -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-bullseye"></i>
-            도메인 개요
-          </h2>
-          <div class="content-card">
-            <p>
-              Motoo는 주식 투자 플랫폼으로, 다음과 같은 핵심 도메인들로 구성되어 있습니다. 
-              각 도메인은 독립적인 비즈니스 영역을 담당하며, 도메인 간 협력을 통해 전체 시스템을 구성합니다.
-            </p>
-            
-            <div class="domain-overview">
-              <div class="domain-stats">
-                <div class="stat-item">
-                  <span class="stat-number">7</span>
-                  <span class="stat-label">핵심 도메인</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">15+</span>
-                  <span class="stat-label">엔티티</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">100%</span>
-                  <span class="stat-label">DDD 적용</span>
-                </div>
+        <!-- Overview Section -->
+        <section class="overview-section">
+          <h2>📚 도메인 개요</h2>
+          <div class="overview-cards">
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-users"></i>
               </div>
+              <h3>사용자 관리</h3>
+              <p>회원가입, 로그인, 프로필 관리 등 사용자 관련 비즈니스 로직</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h3>종목 관리</h3>
+              <p>주식 종목 정보, 시세 데이터, 종목 검색 및 필터링</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3>주문 처리</h3>
+              <p>매수/매도 주문, 주문 상태 관리, 체결 처리</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h3>포트폴리오</h3>
+              <p>포트폴리오 구성, 자산 현황, 수익률 계산</p>
             </div>
           </div>
         </section>
 
-        <!-- Entity Relationship Diagram -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-project-diagram"></i>
-            엔티티 관계도 (ERD)
-          </h2>
-          <div class="content-card">
-            <div class="erd-diagram">
-              <h3>전체 도메인 ERD</h3>
-              <div class="erd-container">
-                <div class="entity-group">
-                  <h4>사용자 관련</h4>
-                  <div class="entity">USERS</div>
-                  <div class="entity">USER_STOCKS</div>
-                  <div class="entity">TRANSACTION_HISTORY</div>
-                </div>
-                
-                <div class="entity-group">
-                  <h4>주식 관련</h4>
-                  <div class="entity">STOCKS</div>
-                  <div class="entity">INDUSTRIES</div>
-                  <div class="entity">STOCK_PRICE_MINUTE</div>
-                  <div class="entity">STOCK_PRICE_HOUR</div>
-                  <div class="entity">STOCK_PRICE_DAILY</div>
-                  <div class="entity">FINANCIAL_STATEMENTS</div>
-                </div>
-                
-                <div class="entity-group">
-                  <h4>거래 관련</h4>
-                  <div class="entity">ORDERS</div>
-                  <div class="entity">EXECUTIONS</div>
-                </div>
-                
-                <div class="entity-group">
-                  <h4>시스템 관련</h4>
-                  <div class="entity">TOKEN</div>
-                </div>
-              </div>
-              
-              <div class="relationship-legend">
-                <h4>관계 설명</h4>
-                <ul>
-                  <li><strong>USERS</strong> ↔ <strong>USER_STOCKS</strong>: 사용자가 보유한 주식</li>
-                  <li><strong>USERS</strong> ↔ <strong>ORDERS</strong>: 사용자가 생성한 주문</li>
-                  <li><strong>USERS</strong> ↔ <strong>EXECUTIONS</strong>: 사용자의 체결 내역</li>
-                  <li><strong>STOCKS</strong> ↔ <strong>STOCK_PRICE_*</strong>: 주식별 시세 데이터</li>
-                  <li><strong>ORDERS</strong> ↔ <strong>EXECUTIONS</strong>: 주문과 체결 관계</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+        <!-- Posts Section -->
+        <section class="posts-section">
+          <h2>📖 도메인 문서</h2>
 
-        <!-- Core Domains -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-cubes"></i>
-            핵심 도메인
-          </h2>
-          <div class="content-card">
-            <div class="domains-grid">
-              <!-- User Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-user"></i>
-                  </div>
-                  <h3>User Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>사용자 계정 관리, 인증, 권한 관리</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>회원가입 및 로그인</li>
-                      <li>사용자 프로필 관리</li>
-                      <li>현금 잔고 관리</li>
-                      <li>JWT 토큰 인증</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>User</li>
-                      <li>UserStock</li>
-                      <li>TransactionHistory</li>
-                    </ul>
-                  </div>
-                </div>
+          <div class="posts-grid">
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">도메인 개요</span>
+                <span class="post-date">2025년 8월 13일</span>
               </div>
-
-              <!-- Stock Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-chart-line"></i>
-                  </div>
-                  <h3>Stock Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>주식 종목 정보 및 시세 데이터 관리</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>종목 정보 관리</li>
-                      <li>실시간 시세 수집</li>
-                      <li>재무제표 데이터</li>
-                      <li>한국투자증권 API 연동</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>Stock</li>
-                      <li>Industry</li>
-                      <li>StockPriceMinute</li>
-                      <li>StockPriceHour</li>
-                      <li>StockPriceDaily</li>
-                      <li>FinancialStatement</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Order Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                  </div>
-                  <h3>Order Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>주문 생성, 매칭, 상태 관리</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>매수/매도 주문</li>
-                      <li>주문 검증</li>
-                      <li>주문 상태 관리</li>
-                      <li>주문 취소</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>Order</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Execution Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-exchange-alt"></i>
-                  </div>
-                  <h3>Execution Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>체결 처리 및 거래 내역 관리</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>체결 처리</li>
-                      <li>체결 검증</li>
-                      <li>거래 내역 관리</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>Execution</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Portfolio Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-briefcase"></i>
-                  </div>
-                  <h3>Portfolio Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>포트폴리오 관리 및 분석</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>보유 주식 관리</li>
-                      <li>포트폴리오 가치 계산</li>
-                      <li>투자 성과 분석</li>
-                      <li>수익률 계산</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>UserStock (관련)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Token Domain -->
-              <div class="domain-card">
-                <div class="domain-header">
-                  <div class="domain-icon">
-                    <i class="fas fa-key"></i>
-                  </div>
-                  <h3>Token Domain</h3>
-                </div>
-                <div class="domain-content">
-                  <p>API 토큰 관리 및 갱신</p>
-                  <div class="domain-features">
-                    <h4>주요 기능</h4>
-                    <ul>
-                      <li>한국투자증권 API 토큰</li>
-                      <li>토큰 자동 갱신</li>
-                      <li>토큰 유효성 검증</li>
-                    </ul>
-                  </div>
-                  <div class="domain-entities">
-                    <h4>핵심 엔티티</h4>
-                    <ul>
-                      <li>Token</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Business Logic -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-cogs"></i>
-            핵심 비즈니스 로직
-          </h2>
-          <div class="content-card">
-            <div class="business-logic">
-              <div class="logic-item">
-                <h3>1. 주문 검증 시스템</h3>
-                <ul>
-                  <li><strong>사용자 검증</strong>: 유효한 사용자인지 확인</li>
-                  <li><strong>잔고 검증</strong>: 매수 시 충분한 현금, 매도 시 충분한 보유 주식 확인</li>
-                  <li><strong>주문 상태 관리</strong>: PENDING → COMPLETED/CANCELLED 상태 전이</li>
-                </ul>
-              </div>
-
-              <div class="logic-item">
-                <h3>2. 포트폴리오 가치 계산</h3>
-                <ul>
-                  <li><strong>현재 가치</strong>: 보유 주식 × 현재가 + 현금 잔고</li>
-                  <li><strong>수익률 계산</strong>: (현재 가치 - 초기 투자금) / 초기 투자금 × 100</li>
-                  <li><strong>평단가 관리</strong>: 매수 시마다 평균 매수가 재계산</li>
-                </ul>
-              </div>
-
-              <div class="logic-item">
-                <h3>3. 실시간 데이터 처리</h3>
-                <ul>
-                  <li><strong>시세 수집</strong>: 1분마다 활성 종목 시세 수집</li>
-                  <li><strong>데이터 집계</strong>: 하위 단위 데이터를 상위 단위로 집계</li>
-                  <li><strong>데이터 검증</strong>: 수집된 데이터의 유효성 검사</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Domain Interactions -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-network-wired"></i>
-            도메인 간 상호작용
-          </h2>
-          <div class="content-card">
-            <div class="interactions">
-              <div class="interaction-flow">
-                <h3>주문-체결 연계</h3>
-                <div class="flow-diagram">
-                  <div class="flow-step">Order</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">Execution</div>
-                  <div class="flow-arrow">↓</div>
-                  <div class="flow-step">UserStock</div>
-                  <div class="flow-arrow">←</div>
-                  <div class="flow-step">User</div>
-                </div>
-              </div>
-
-              <div class="interaction-flow">
-                <h3>시세-포트폴리오 연계</h3>
-                <div class="flow-diagram">
-                  <div class="flow-step">StockPrice</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">Stock</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">UserStock</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">Portfolio</div>
-                </div>
-              </div>
-
-              <div class="interaction-flow">
-                <h3>토큰-API 연계</h3>
-                <div class="flow-diagram">
-                  <div class="flow-step">Token</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">StockApiService</div>
-                  <div class="flow-arrow">→</div>
-                  <div class="flow-step">Stock</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Precision -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-calculator"></i>
-            데이터 정밀도 관리
-          </h2>
-          <div class="content-card">
-            <div class="data-precision">
-              <h3>BigDecimal 기반 고정밀 데이터 처리</h3>
-              <p>
-                Motoo는 금융 데이터의 정확성을 위해 BigDecimal을 사용하여 고정밀 주가 데이터를 처리합니다.
+              <h3 class="post-title">
+                <a href="/posts/domain-overview.html"
+                  >Motoo 프로젝트 도메인 설계 개요</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                주식 투자 플랫폼의 핵심 비즈니스 도메인과 엔티티 관계, 
+                도메인 간 상호작용에 대한 전체적인 설계를 살펴봅니다.
               </p>
-              
-              <div class="precision-examples">
-                <div class="example-item">
-                  <h4>주가 데이터</h4>
-                  <ul>
-                    <li>정밀도: precision(15,4)</li>
-                    <li>예시: 123,456.7890원</li>
-                    <li>적용: open_price, high_price, low_price, close_price</li>
-                  </ul>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">domain-design</span>
+                  <span class="tag">ddd</span>
+                  <span class="tag">entity-relationship</span>
                 </div>
-                
-                <div class="example-item">
-                  <h4>거래량 데이터</h4>
-                  <ul>
-                    <li>타입: bigint</li>
-                    <li>예시: 1,234,567주</li>
-                    <li>적용: volume, quantity</li>
-                  </ul>
-                </div>
-                
-                <div class="example-item">
-                  <h4>거래대금 데이터</h4>
-                  <ul>
-                    <li>타입: bigint</li>
-                    <li>예시: 123,456,789,000원</li>
-                    <li>적용: amount</li>
-                  </ul>
-                </div>
+                <a href="/posts/domain-overview.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
-            </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">User Domain</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/user-domain.html"
+                  >사용자 도메인 설계 및 구현</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                사용자 계정 관리, 인증, 권한 관리, 그리고 사용자 정보 관리를 
+                담당하는 User 도메인의 상세한 설계와 구현 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">user-management</span>
+                  <span class="tag">authentication</span>
+                  <span class="tag">jwt</span>
+                </div>
+                <a href="/posts/user-domain.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">Stock Domain</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/stock-domain.html"
+                  >주식 도메인 및 시세 데이터 관리</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                주식 종목 정보 관리, 시세 데이터 수집, 재무제표 데이터 관리, 
+                그리고 한국투자증권 API 연동에 대한 상세한 설계를 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">stock-management</span>
+                  <span class="tag">real-time-data</span>
+                  <span class="tag">api-integration</span>
+                </div>
+                <a href="/posts/stock-domain.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">Order Domain</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/order-domain.html"
+                  >주문 도메인 및 매칭 엔진 설계</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                주문 생성, 매칭, 상태 관리, 그리고 가격-시간 우선순위 기반 
+                주문 매칭 엔진의 설계와 구현 방법을 상세히 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">order-management</span>
+                  <span class="tag">matching-engine</span>
+                  <span class="tag">trading-system</span>
+                </div>
+                <a href="/posts/order-domain.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">Portfolio Domain</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/portfolio-domain.html"
+                  >포트폴리오 도메인 및 자산 관리</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                포트폴리오 관리, 보유 주식 관리, 실시간 가치 계산, 
+                투자 성과 분석 및 수익률 계산 로직을 상세히 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">portfolio-management</span>
+                  <span class="tag">asset-tracking</span>
+                  <span class="tag">performance-analysis</span>
+                </div>
+                <a href="/posts/portfolio-domain.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">Data Precision</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/data-precision.html"
+                  >BigDecimal 기반 고정밀 데이터 처리</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                금융 데이터의 정확성을 위한 BigDecimal 사용, 고정밀 주가 데이터 처리, 
+                그리고 데이터 정밀도 관리 전략에 대해 상세히 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">bigdecimal</span>
+                  <span class="tag">financial-data</span>
+                  <span class="tag">precision</span>
+                </div>
+                <a href="/posts/data-precision.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
-        <!-- Implementation Status -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-check-circle"></i>
-            구현 현황
-          </h2>
-          <div class="content-card">
-            <div class="implementation-status">
-              <div class="status-category">
-                <h3>✅ 완료된 기능</h3>
-                <ul>
-                  <li>사용자 관리: 사용자 프로필 조회, 자산 계산, 현금 관리</li>
-                  <li>주식 관리: 종목 정보, 시세 데이터 수집, 재무제표 관리</li>
-                  <li>주문 시스템: 주문 생성, 검증, 상태 관리</li>
-                  <li>체결 시스템: 체결 내역 생성 및 관리</li>
-                  <li>포트폴리오: 보유 주식 관리, 실시간 가치 계산, 수익률 분석</li>
-                  <li>거래 내역: 사용자별 거래 내역 조회 및 필터링</li>
-                  <li>API 연동: 한국투자증권 API 토큰 자동 갱신 및 관리</li>
-                  <li>스케줄링: 정기적 데이터 수집 (분/시간/일봉), 종목 갱신</li>
-                  <li>데이터 정밀도: BigDecimal 기반 고정밀 주가 데이터 처리</li>
-                </ul>
-              </div>
-
-              <div class="status-category">
-                <h3>🚧 진행 중인 기능</h3>
-                <ul>
-                  <li>주문 매칭: 가격-시간 우선순위 기반 주문 매칭 엔진</li>
-                  <li>실시간 알림: 체결/가격 변동 실시간 알림</li>
-                  <li>고급 분석: 기술적 지표, AI 기반 투자 분석</li>
-                </ul>
-              </div>
-            </div>
+        <!-- Quick Links -->
+        <section class="quick-links">
+          <h2>🔗 빠른 링크</h2>
+          <div class="links-grid">
+            <a href="/architecture" class="link-card">
+              <i class="fas fa-building"></i>
+              <span>아키텍처 설계</span>
+            </a>
+            <a href="/implementation" class="link-card">
+              <i class="fas fa-code"></i>
+              <span>구현 패턴</span>
+            </a>
+            <a href="/testing" class="link-card">
+              <i class="fas fa-flask"></i>
+              <span>테스트 전략</span>
+            </a>
+            <a href="/troubleshooting" class="link-card">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>문제해결</span>
+            </a>
           </div>
         </section>
       </div>
@@ -515,7 +305,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+          <p>&copy; 2025 Motoo Team. All rights reserved.</p>
         </div>
       </div>
     </footer>

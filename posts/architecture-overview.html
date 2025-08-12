@@ -6,7 +6,7 @@
     <title>Motoo 프로젝트 아키텍처 개요 - Motoo Tech Blog</title>
     <meta
       name="description"
-      content="Motoo 프로젝트의 전체적인 시스템 아키텍처와 설계 원칙에 대한 개요"
+      content="마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인 시스템 구조와 설계 원칙에 대해 알아봅니다."
     />
 
     <!-- Google Fonts -->
@@ -25,235 +25,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css" />
-
-    <!-- Post-specific CSS -->
-    <style>
-      .post-content {
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.8;
-        font-size: 1.1rem;
-      }
-
-      .post-content h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin: 2rem 0 1rem 0;
-        color: var(--text-primary);
-        border-bottom: 3px solid var(--primary-color);
-        padding-bottom: 0.5rem;
-      }
-
-      .post-content h2 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin: 2.5rem 0 1rem 0;
-        color: var(--text-primary);
-        border-left: 4px solid var(--primary-color);
-        padding-left: 1rem;
-      }
-
-      .post-content h3 {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin: 2rem 0 0.75rem 0;
-        color: var(--text-primary);
-      }
-
-      .post-content p {
-        margin-bottom: 1.5rem;
-        color: var(--text-secondary);
-      }
-
-      .post-content ul,
-      .post-content ol {
-        margin: 1.5rem 0;
-        padding-left: 2rem;
-      }
-
-      .post-content li {
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-      }
-
-      .post-content strong {
-        color: var(--text-primary);
-        font-weight: 600;
-      }
-
-      .post-content code {
-        background: var(--bg-card);
-        padding: 0.2rem 0.4rem;
-        border-radius: 4px;
-        font-family: "Monaco", "Menlo", monospace;
-        font-size: 0.9rem;
-        color: var(--primary-color);
-      }
-
-      .post-content pre {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-        overflow-x: auto;
-      }
-
-      .post-content pre code {
-        background: none;
-        padding: 0;
-        color: var(--text-primary);
-      }
-
-      .tech-stack-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-      }
-
-      .tech-category {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 1.5rem;
-      }
-
-      .tech-category h4 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--primary-color);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .tech-list {
-        list-style: none;
-        padding: 0;
-      }
-
-      .tech-list li {
-        padding: 0.5rem 0;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .tech-list li:last-child {
-        border-bottom: none;
-      }
-
-      .tech-list li i {
-        color: var(--primary-color);
-        width: 16px;
-      }
-
-      .architecture-diagram {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 2rem;
-        margin: 2rem 0;
-        text-align: center;
-      }
-
-      .architecture-diagram h4 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--text-primary);
-      }
-
-      .architecture-diagram .diagram-placeholder {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          var(--primary-hover) 100%
-        );
-        color: white;
-        padding: 3rem 2rem;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
-
-      .post-meta {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        padding: 1rem;
-        background: var(--bg-card);
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-      }
-
-      .post-meta .author {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .post-meta .author-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--primary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 600;
-      }
-
-      .post-meta .date {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-      }
-
-      .post-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .post-tags .tag {
-        background: var(--primary-color);
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-
-      @media (max-width: 768px) {
-        .post-content {
-          font-size: 1rem;
-          padding: 0 1rem;
-        }
-
-        .post-content h1 {
-          font-size: 2rem;
-        }
-
-        .post-content h2 {
-          font-size: 1.5rem;
-        }
-
-        .tech-stack-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .post-meta {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.5rem;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -279,283 +50,387 @@
       </div>
     </nav>
 
-    <!-- Post Header -->
-    <header class="post-header">
+    <!-- Main Content -->
+    <main class="main-content">
       <div class="container">
-        <div class="post-meta">
-          <div class="author">
-            <div class="author-avatar">M</div>
-            <span>Motoo Team</span>
+        <!-- Post Header -->
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-category">시스템 아키텍처</span>
+            <span class="post-date">2025년 8월 13일</span>
           </div>
-          <div class="date">
-            <i class="fas fa-calendar"></i>
-            2024년 1월 15일
-          </div>
+          <h1 class="post-title">Motoo 프로젝트 아키텍처 개요</h1>
+          <p class="post-excerpt">
+            마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인
+            시스템 구조와 설계 원칙에 대해 알아봅니다.
+          </p>
           <div class="post-tags">
             <span class="tag">system-design</span>
             <span class="tag">microservices</span>
             <span class="tag">overview</span>
           </div>
-        </div>
-      </div>
-    </header>
+        </header>
 
-    <!-- Post Content -->
-    <main class="main-content">
-      <div class="container">
+        <!-- Post Content -->
         <article class="post-content">
-          <h1>Motoo 프로젝트 아키텍처 개요</h1>
+          <section class="content-section">
+            <h2>📋 프로젝트 개요</h2>
+            <p>
+              Motoo는 한국투자증권 API를 활용한 주식 투자 플랫폼으로, 실시간
+              주식 시세 수집, 주문 매칭, 포트폴리오 관리, 그리고 투자 성과
+              분석을 제공하는 종합적인 투자 시스템입니다.
+            </p>
+            <p>
+              본 프로젝트는 마이크로서비스 아키텍처를 기반으로 설계되어 확장성과
+              유지보수성을 고려한 현대적인 시스템 구조를 채택하고 있습니다.
+            </p>
+          </section>
 
-          <p>
-            Motoo 프로젝트는 <strong>마이크로서비스 아키텍처</strong>를 기반으로
-            설계되었습니다. 각 서비스는 독립적으로 개발, 배포, 확장이 가능하며,
-            REST API와 메시지 큐를 통해 서로 통신합니다.
-          </p>
+          <section class="content-section">
+            <h2>🏗️ 전체 시스템 아키텍처</h2>
+            <p>Motoo 시스템은 다음과 같은 계층 구조로 구성되어 있습니다:</p>
 
-          <h2>시스템 구조</h2>
-
-          <div class="architecture-diagram">
-            <h4>마이크로서비스 아키텍처 구조</h4>
-            <div class="diagram-placeholder">
-              <i
-                class="fas fa-sitemap"
-                style="font-size: 3rem; margin-bottom: 1rem"
-              ></i>
-              <p>API Gateway → Business Services → Data Layer</p>
-              <p>각 서비스는 독립적으로 배포 및 확장 가능</p>
+            <div class="architecture-diagram">
+              <h3>시스템 아키텍처 다이어그램</h3>
+              <div class="diagram-container">
+                <div class="diagram-layer">
+                  <h4>Presentation Layer</h4>
+                  <div class="component">React Frontend</div>
+                  <div class="component">API Gateway</div>
+                </div>
+                <div class="diagram-layer">
+                  <h4>Application Layer</h4>
+                  <div class="component">User Service</div>
+                  <div class="component">Stock Service</div>
+                  <div class="component">Order Service</div>
+                  <div class="component">Portfolio Service</div>
+                  <div class="component">Execution Service</div>
+                  <div class="component">Token Service</div>
+                </div>
+                <div class="diagram-layer">
+                  <h4>Data Layer</h4>
+                  <div class="component">PostgreSQL</div>
+                  <div class="component">Redis</div>
+                </div>
+                <div class="diagram-layer">
+                  <h4>External APIs</h4>
+                  <div class="component">한국투자증권 API</div>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
-          <h3>핵심 설계 원칙</h3>
-          <ul>
-            <li>
-              <strong>단일 책임 원칙</strong>: 각 서비스는 하나의 명확한
-              비즈니스 도메인을 담당
-            </li>
-            <li>
-              <strong>독립성</strong>: 서비스 간 느슨한 결합으로 유지보수성 향상
-            </li>
-            <li><strong>확장성</strong>: 수평적 확장이 용이한 구조</li>
-            <li><strong>안정성</strong>: 장애 격리와 복구 능력 보장</li>
-          </ul>
+          <section class="content-section">
+            <h2>🔧 핵심 컴포넌트 설명</h2>
 
-          <h2>기술 스택</h2>
+            <h3>Application Services (docker-compose.yml)</h3>
+            <ul>
+              <li>
+                <strong>backend</strong>: 메인 애플리케이션 서비스로, 프로젝트
+                루트의 Dockerfile에서 빌드됩니다. db와 redis 서비스에 의존하며
+                포트 8080에서 실행됩니다.
+              </li>
+              <li>
+                <strong>db</strong>: PostgreSQL 15 데이터베이스 서비스로, 주요
+                데이터 저장소 역할을 합니다. 포트 5432를 노출하며 postgres_data
+                볼륨에 데이터를 저장합니다.
+              </li>
+              <li>
+                <strong>redis</strong>: Redis 7 서비스로, 캐싱과 메시지 큐
+                용도로 사용됩니다. 포트 6379를 노출하며 redis_data 볼륨에
+                데이터를 저장합니다.
+              </li>
+              <li>
+                <strong>redis-cli</strong>: Redis 서버와 상호작용하기 위한 Redis
+                클라이언트 서비스로, 주로 디버깅과 수동 작업을 위해 사용됩니다.
+              </li>
+            </ul>
 
-          <div class="tech-stack-grid">
-            <div class="tech-category">
-              <h4><i class="fas fa-server"></i> Backend</h4>
-              <ul class="tech-list">
-                <li><i class="fas fa-code"></i> Java 17</li>
-                <li><i class="fas fa-leaf"></i> Spring Boot 3.x</li>
-                <li><i class="fas fa-database"></i> PostgreSQL 14+</li>
-                <li><i class="fas fa-memory"></i> Redis 6+</li>
-                <li><i class="fas fa-stream"></i> Apache Kafka</li>
-                <li><i class="fas fa-file-alt"></i> OpenAPI 3.0</li>
-              </ul>
+            <h3>Monitoring Services (docker-compose.monitoring.yml)</h3>
+            <ul>
+              <li>
+                <strong>prometheus</strong>: 다양한 익스포터에서 메트릭을
+                수집하는 모니터링 및 알림 도구킷입니다. 포트 9090에서
+                실행됩니다.
+              </li>
+              <li>
+                <strong>grafana</strong>: Prometheus에서 수집한 메트릭과 Loki의
+                로그를 시각화하는 분석 플랫폼입니다. 포트 3001에서 실행됩니다.
+              </li>
+              <li>
+                <strong>cadvisor</strong>: 실행 중인 컨테이너에 대한 정보를
+                수집, 집계, 처리하고 내보내는 컨테이너 어드바이저입니다. 포트
+                8081에서 실행됩니다.
+              </li>
+              <li>
+                <strong>postgres-exporter</strong>: PostgreSQL 데이터베이스에서
+                Prometheus용 메트릭을 수집하는 익스포터입니다.
+              </li>
+              <li>
+                <strong>k6</strong>: 애플리케이션의 성능 테스트를 위한 부하
+                테스트 도구입니다.
+              </li>
+              <li>
+                <strong>node-exporter</strong>: *NIX 커널에서 노출하는 하드웨어
+                및 OS 메트릭을 위한 익스포터입니다.
+              </li>
+              <li>
+                <strong>redis-exporter</strong>: Redis 메트릭을 Prometheus용으로
+                수집하는 익스포터입니다.
+              </li>
+            </ul>
+
+            <h3>Logging Services (docker-compose.logging.yml)</h3>
+            <ul>
+              <li>
+                <strong>loki</strong>: 모든 서비스의 로그를 저장하고 쿼리하기
+                위한 로그 집계 시스템입니다. 포트 3100에서 실행됩니다.
+              </li>
+              <li>
+                <strong>promtail</strong>: 로컬 로그의 내용을 개인 Loki
+                인스턴스로 전송하는 에이전트입니다.
+              </li>
+              <li>
+                <strong>grafana</strong>: 모니터링 설정과 동일한 Grafana
+                인스턴스로, Loki의 로그를 시각화하는 데에도 사용됩니다. 포트
+                3000에서 실행됩니다.
+              </li>
+            </ul>
+          </section>
+
+          <section class="content-section">
+            <h2>📊 시스템 데이터 플로우</h2>
+
+            <h3>주식 거래 플로우</h3>
+            <div class="flow-diagram">
+              <div class="flow-steps">
+                <div class="flow-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>사용자 주문</h4>
+                    <p>매수/매도 주문 생성</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>주문 검증</h4>
+                    <p>잔고 및 주문 유효성 검증</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>주문 매칭</h4>
+                    <p>가격-시간 우선순위 매칭</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>체결 처리</h4>
+                    <p>체결 내역 생성 및 저장</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>포트폴리오 업데이트</h4>
+                    <p>보유 주식 및 현금 잔고 업데이트</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="tech-category">
-              <h4><i class="fas fa-cloud"></i> Infrastructure</h4>
-              <ul class="tech-list">
-                <li><i class="fab fa-docker"></i> Docker</li>
-                <li><i class="fas fa-cubes"></i> Kubernetes</li>
-                <li><i class="fab fa-aws"></i> AWS</li>
-                <li><i class="fas fa-balance-scale"></i> Nginx</li>
-                <li><i class="fas fa-chart-line"></i> Prometheus + Grafana</li>
-              </ul>
+            <h3>시세 데이터 수집 플로우</h3>
+            <div class="flow-diagram">
+              <div class="flow-steps">
+                <div class="flow-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>스케줄러 실행</h4>
+                    <p>정기적 데이터 수집 트리거</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>한국투자증권 API 호출</h4>
+                    <p>실시간 시세 데이터 요청</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>데이터 저장</h4>
+                    <p>1분봉, 1시간봉, 1일봉 저장</p>
+                  </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>데이터 집계</h4>
+                    <p>상위 단위 데이터 집계</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </section>
 
-            <div class="tech-category">
-              <h4><i class="fas fa-desktop"></i> Frontend</h4>
-              <ul class="tech-list">
-                <li><i class="fab fa-react"></i> React 18</li>
-                <li><i class="fas fa-box"></i> Redux Toolkit</li>
-                <li><i class="fas fa-palette"></i> Tailwind CSS</li>
-                <li><i class="fab fa-js-square"></i> TypeScript</li>
-              </ul>
-            </div>
-          </div>
+          <section class="content-section">
+            <h2>🛡️ 시스템 보안 및 안정성</h2>
 
-          <h2>서비스 아키텍처</h2>
+            <h3>데이터 보안</h3>
+            <ul>
+              <li>
+                <strong>API 토큰 보안</strong>: 한국투자증권 API 토큰을 안전하게
+                저장하고 자동으로 갱신합니다.
+              </li>
+              <li>
+                <strong>환경 변수 관리</strong>: 민감한 설정 정보를 환경 변수로
+                분리하여 관리합니다.
+              </li>
+              <li>
+                <strong>데이터 검증</strong>: 입력 데이터의 유효성을 검사하고
+                SQL Injection을 방지합니다.
+              </li>
+              <li>
+                <strong>JWT 기반 인증</strong>: 사용자 인증을 위한 JWT 토큰
+                시스템을 구현합니다.
+              </li>
+            </ul>
 
-          <h3>1. Presentation Layer</h3>
-          <ul>
-            <li><strong>API Gateway</strong>: 모든 외부 요청의 진입점</li>
-            <li>
-              <strong>Load Balancer</strong>: 트래픽 분산 및 고가용성 보장
-            </li>
-            <li><strong>CDN</strong>: 정적 리소스 전송 최적화</li>
-          </ul>
+            <h3>데이터 무결성</h3>
+            <ul>
+              <li>
+                <strong>트랜잭션 관리</strong>: ACID 속성을 보장하는 트랜잭션
+                관리
+              </li>
+              <li>
+                <strong>참조 무결성</strong>: 외래키 제약조건을 통한 데이터
+                일관성 보장
+              </li>
+              <li><strong>검증 로직</strong>: 비즈니스 룰 기반 데이터 검증</li>
+            </ul>
 
-          <h3>2. Business Layer</h3>
-          <ul>
-            <li><strong>User Service</strong>: 사용자 인증, 권한 관리</li>
-            <li><strong>Stock Service</strong>: 종목 정보, 시세 데이터</li>
-            <li><strong>Order Service</strong>: 주문 처리, 주문 상태 관리</li>
-            <li>
-              <strong>Portfolio Service</strong>: 포트폴리오 관리, 자산 현황
-            </li>
-            <li><strong>Transaction Service</strong>: 거래 내역 관리</li>
-            <li><strong>Token Service</strong>: JWT 토큰 관리</li>
-            <li><strong>Execution Service</strong>: 주문 체결 처리</li>
-          </ul>
+            <h3>시스템 안정성</h3>
+            <ul>
+              <li>
+                <strong>에러 처리</strong>: 포괄적인 예외 처리 및 복구 메커니즘
+              </li>
+              <li><strong>로깅</strong>: 상세한 시스템 로그 및 모니터링</li>
+              <li><strong>백업</strong>: 정기적인 데이터 백업 및 복구</li>
+            </ul>
+          </section>
 
-          <h3>3. Data Layer</h3>
-          <ul>
-            <li>
-              <strong>Primary Database</strong>: PostgreSQL (주 데이터 저장)
-            </li>
-            <li><strong>Cache</strong>: Redis (세션, 임시 데이터)</li>
-            <li><strong>Message Queue</strong>: Kafka (비동기 처리)</li>
-            <li><strong>File Storage</strong>: AWS S3 (파일 저장)</li>
-          </ul>
+          <section class="content-section">
+            <h2>📈 성능 최적화</h2>
 
-          <h2>통신 패턴</h2>
+            <h3>데이터베이스 최적화</h3>
+            <ul>
+              <li>
+                <strong>인덱스 전략</strong>: 효율적인 쿼리를 위한 인덱스 설계
+              </li>
+              <li>
+                <strong>쿼리 최적화</strong>: N+1 문제 해결 및 Fetch Join 활용
+              </li>
+              <li>
+                <strong>캐싱</strong>: Redis를 통한 자주 조회되는 데이터 캐싱
+              </li>
+            </ul>
 
-          <h3>동기 통신 (REST API)</h3>
-          <ul>
-            <li>실시간 데이터 요청</li>
-            <li>사용자 인증/인가</li>
-            <li>즉시 응답이 필요한 작업</li>
-          </ul>
+            <h3>API 성능</h3>
+            <ul>
+              <li>
+                <strong>페이지네이션</strong>: 대용량 데이터 조회 시
+                페이지네이션 적용
+              </li>
+              <li>
+                <strong>배치 처리</strong>: 대량 데이터 처리 시 배치 단위 처리
+              </li>
+              <li>
+                <strong>비동기 처리</strong>: 시간이 오래 걸리는 작업의 비동기
+                처리
+              </li>
+            </ul>
+          </section>
 
-          <h3>비동기 통신 (Kafka)</h3>
-          <ul>
-            <li>이벤트 기반 처리</li>
-            <li>배치 작업</li>
-            <li>알림 발송</li>
-          </ul>
+          <section class="content-section">
+            <h2>🚀 확장 가능성</h2>
 
-          <h3>gRPC</h3>
-          <ul>
-            <li>서비스 간 내부 통신</li>
-            <li>높은 성능이 필요한 작업</li>
-          </ul>
+            <h3>기능 확장</h3>
+            <ul>
+              <li>
+                <strong>실시간 데이터</strong>: WebSocket 연결 안정화 후 실시간
+                시세 업데이트
+              </li>
+              <li>
+                <strong>주문 매칭 엔진</strong>: 가격-시간 우선순위 기반 자동
+                매칭 시스템
+              </li>
+              <li>
+                <strong>모바일 앱</strong>: React Native 기반 모바일
+                애플리케이션
+              </li>
+              <li>
+                <strong>웹 대시보드</strong>: React 기반 실시간 포트폴리오
+                대시보드
+              </li>
+            </ul>
 
-          <h2>보안 아키텍처</h2>
+            <h3>분석 기능</h3>
+            <ul>
+              <li><strong>AI 분석</strong>: 머신러닝 기반 투자 패턴 분석</li>
+              <li><strong>예측 모델</strong>: 주가 예측 및 투자 추천 시스템</li>
+              <li>
+                <strong>리스크 관리</strong>: VaR, 스트레스 테스트 등 리스크
+                분석
+              </li>
+            </ul>
 
-          <h3>인증/인가</h3>
-          <ul>
-            <li>JWT 기반 토큰 인증</li>
-            <li>OAuth 2.0 / OIDC 지원</li>
-            <li>Role-based Access Control (RBAC)</li>
-          </ul>
+            <h3>서비스 확장</h3>
+            <ul>
+              <li>
+                <strong>다중 시장</strong>: 해외 주식, 채권, ETF 등 추가 시장
+              </li>
+              <li><strong>소셜 기능</strong>: 투자 성과 공유 및 커뮤니티</li>
+              <li><strong>교육 플랫폼</strong>: 투자 교육 및 시뮬레이션</li>
+            </ul>
 
-          <h3>데이터 보안</h3>
-          <ul>
-            <li>HTTPS/TLS 암호화</li>
-            <li>데이터베이스 암호화</li>
-            <li>개인정보 마스킹</li>
-          </ul>
-
-          <h3>인프라 보안</h3>
-          <ul>
-            <li>VPC 네트워크 격리</li>
-            <li>WAF (Web Application Firewall)</li>
-            <li>보안 그룹 설정</li>
-          </ul>
-
-          <h2>확장성 전략</h2>
-
-          <h3>수평적 확장</h3>
-          <ul>
-            <li>Auto Scaling Group</li>
-            <li>Load Balancer를 통한 트래픽 분산</li>
-            <li>데이터베이스 샤딩</li>
-          </ul>
-
-          <h3>캐싱 전략</h3>
-          <ul>
-            <li>Redis Cluster</li>
-            <li>CDN 활용</li>
-            <li>Application Level Caching</li>
-          </ul>
-
-          <h3>데이터베이스 최적화</h3>
-          <ul>
-            <li>인덱스 최적화</li>
-            <li>쿼리 튜닝</li>
-            <li>Read Replica 활용</li>
-          </ul>
-
-          <h2>모니터링 및 로깅</h2>
-
-          <h3>모니터링</h3>
-          <ul>
-            <li><strong>Infrastructure</strong>: Prometheus + Grafana</li>
-            <li><strong>Application</strong>: Spring Boot Actuator</li>
-            <li><strong>Custom Metrics</strong>: 비즈니스 지표 추적</li>
-          </ul>
-
-          <h3>로깅</h3>
-          <ul>
-            <li><strong>Centralized Logging</strong>: ELK Stack</li>
-            <li><strong>Structured Logging</strong>: JSON 형태</li>
-            <li><strong>Log Aggregation</strong>: Fluentd</li>
-          </ul>
-
-          <h3>알림</h3>
-          <ul>
-            <li><strong>Slack Integration</strong>: 실시간 알림</li>
-            <li><strong>Email</strong>: 중요 이벤트 알림</li>
-            <li><strong>SMS</strong>: 긴급 장애 알림</li>
-          </ul>
-
-          <h2>배포 전략</h2>
-
-          <h3>CI/CD Pipeline</h3>
-          <ul>
-            <li><strong>Source Control</strong>: GitHub</li>
-            <li><strong>Build</strong>: GitHub Actions</li>
-            <li><strong>Test</strong>: 자동화된 테스트 실행</li>
-            <li><strong>Deploy</strong>: Blue-Green Deployment</li>
-          </ul>
-
-          <h3>배포 방식</h3>
-          <ul>
-            <li><strong>Blue-Green</strong>: 무중단 배포</li>
-            <li><strong>Rolling Update</strong>: 점진적 업데이트</li>
-            <li><strong>Canary</strong>: 일부 트래픽으로 테스트</li>
-          </ul>
-
-          <h2>성능 목표</h2>
-
-          <h3>응답 시간</h3>
-          <ul>
-            <li>API 응답: 95% < 200ms</li>
-            <li>페이지 로드: 95% < 2초</li>
-            <li>데이터베이스 쿼리: 95% < 50ms</li>
-          </ul>
-
-          <h3>가용성</h3>
-          <ul>
-            <li>시스템 가용성: 99.9%</li>
-            <li>데이터 백업: 일일 백업</li>
-            <li>재해 복구: RTO < 4시간, RPO < 1시간</li>
-          </ul>
-
-          <h3>처리량</h3>
-          <ul>
-            <li>동시 사용자: 10,000명</li>
-            <li>초당 요청: 1,000 RPS</li>
-            <li>데이터베이스 연결: 1,000개</li>
-          </ul>
-
-          <h2>결론</h2>
-
-          <p>
-            Motoo 프로젝트의 아키텍처는 <strong>확장성</strong>,
-            <strong>안정성</strong>, <strong>유지보수성</strong>을 핵심 가치로
-            설계되었습니다. 마이크로서비스 패턴을 통해 각 서비스의 독립성을
-            보장하고, 현대적인 기술 스택을 활용하여 높은 성능과 안정성을
-            제공합니다.
-          </p>
-
-          <p>
-            앞으로의 개발 과정에서 이러한 아키텍처 원칙을 지키면서, 지속적인
-            개선과 최적화를 통해 더 나은 시스템을 구축해 나갈 것입니다.
-          </p>
+            <h3>기술 확장</h3>
+            <ul>
+              <li>
+                <strong>마이크로서비스</strong>: 도메인별 마이크로서비스
+                아키텍처
+              </li>
+              <li>
+                <strong>클라우드 배포</strong>: AWS/Azure 기반 클라우드 인프라
+              </li>
+              <li><strong>DevOps</strong>: CI/CD 파이프라인 및 자동화</li>
+            </ul>
+          </section>
         </article>
+
+        <!-- Post Navigation -->
+        <nav class="post-navigation">
+          <div class="nav-links">
+            <a href="/architecture" class="nav-link prev">
+              <i class="fas fa-arrow-left"></i>
+              <span>아키텍처 카테고리로 돌아가기</span>
+            </a>
+            <a href="/posts/technology-stack.html" class="nav-link next">
+              <span>다음: 기술 스택 분석</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
       </div>
     </main>
 
@@ -577,7 +452,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+          <p>&copy; 2025 Motoo Team. All rights reserved.</p>
         </div>
       </div>
     </footer>

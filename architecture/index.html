@@ -6,7 +6,7 @@
     <title>아키텍처 - Motoo Tech Blog</title>
     <meta
       name="description"
-      content="Motoo 프로젝트의 시스템 아키텍처, 기술 스택, 마이크로서비스 구조에 대한 상세한 설명"
+      content="Motoo 프로젝트의 시스템 아키텍처, 기술 스택, 마이크로서비스 구조에 대한 포스트 모음"
     />
 
     <!-- Google Fonts -->
@@ -53,403 +53,186 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="container">
-        <!-- Page Header -->
-        <header class="page-header">
-          <h1 class="page-title">시스템 아키텍처</h1>
-          <p class="page-description">
-            Motoo 프로젝트의 전체적인 시스템 구조와 기술 스택에 대한 상세한 설명
+        <!-- Category Header -->
+        <header class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h1>🏗️ 아키텍처</h1>
+          <p class="category-description">
+            Motoo 프로젝트의 시스템 아키텍처, 데이터베이스 설계, 기술 스택 등
+            프로젝트의 전체적인 구조를 파악할 수 있습니다.
           </p>
         </header>
 
-        <!-- Architecture Overview -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-building"></i>
-            시스템 아키텍처 개요
-          </h2>
-          <div class="content-card">
-            <p>
-              Motoo는 한국투자증권 API를 활용한 주식 투자 플랫폼으로, 마이크로서비스 아키텍처를 기반으로 설계되었습니다. 
-              실시간 주식 시세 수집, 주문 매칭, 포트폴리오 관리, 그리고 투자 성과 분석을 제공하는 종합적인 투자 시스템입니다.
-            </p>
-            
-            <div class="architecture-diagram">
-              <h3>시스템 아키텍처 다이어그램</h3>
-              <div class="diagram-container">
-                <div class="diagram-layer">
-                  <h4>Presentation Layer</h4>
-                  <div class="component">React Frontend</div>
-                  <div class="component">API Gateway</div>
-                </div>
-                <div class="diagram-layer">
-                  <h4>Application Layer</h4>
-                  <div class="component">User Service</div>
-                  <div class="component">Stock Service</div>
-                  <div class="component">Order Service</div>
-                  <div class="component">Portfolio Service</div>
-                </div>
-                <div class="diagram-layer">
-                  <h4>Data Layer</h4>
-                  <div class="component">PostgreSQL</div>
-                  <div class="component">Redis</div>
-                </div>
-                <div class="diagram-layer">
-                  <h4>External APIs</h4>
-                  <div class="component">한국투자증권 API</div>
-                </div>
+        <!-- Overview Section -->
+        <section class="overview-section">
+          <h2>📚 아키텍처 개요</h2>
+          <div class="overview-cards">
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-sitemap"></i>
               </div>
+              <h3>시스템 구조</h3>
+              <p>마이크로서비스 아키텍처 기반의 확장 가능한 시스템 설계</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3>데이터 설계</h3>
+              <p>PostgreSQL 기반의 정규화된 데이터베이스 구조</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>보안 아키텍처</h3>
+              <p>JWT 기반 인증 및 다층 보안 구조</p>
+            </div>
+            <div class="overview-card">
+              <div class="card-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3>확장성</h3>
+              <p>수평적 확장이 가능한 클라우드 네이티브 아키텍처</p>
             </div>
           </div>
         </section>
 
-        <!-- Technology Stack -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-layer-group"></i>
-            기술 스택
-          </h2>
-          <div class="content-card">
-            <div class="tech-stack">
-              <div class="tech-category">
-                <h3>Backend</h3>
-                <div class="tech-items">
-                  <div class="tech-item">
-                    <i class="fab fa-java"></i>
-                    <span>Java 21</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-leaf"></i>
-                    <span>Spring Boot 3.5.0</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-database"></i>
-                    <span>PostgreSQL 15</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-memory"></i>
-                    <span>Redis 7</span>
-                  </div>
-                </div>
-              </div>
+        <!-- Posts Section -->
+        <section class="posts-section">
+          <h2>📖 아키텍처 문서</h2>
 
-              <div class="tech-category">
-                <h3>Frontend</h3>
-                <div class="tech-items">
-                  <div class="tech-item">
-                    <i class="fab fa-react"></i>
-                    <span>React 18</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fab fa-typescript"></i>
-                    <span>TypeScript</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fab fa-css3-alt"></i>
-                    <span>CSS3</span>
-                  </div>
-                </div>
+          <div class="posts-grid">
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">시스템 아키텍처</span>
+                <span class="post-date">2025년 8월 13일</span>
               </div>
+              <h3 class="post-title">
+                <a href="/posts/architecture-overview.html"
+                  >Motoo 프로젝트 아키텍처 개요</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                마이크로서비스 아키텍처를 기반으로 한 Motoo 프로젝트의 전체적인
+                시스템 구조와 설계 원칙에 대해 알아봅니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">system-design</span>
+                  <span class="tag">microservices</span>
+                  <span class="tag">overview</span>
+                </div>
+                <a href="/posts/architecture-overview.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
 
-              <div class="tech-category">
-                <h3>DevOps & Monitoring</h3>
-                <div class="tech-items">
-                  <div class="tech-item">
-                    <i class="fab fa-docker"></i>
-                    <span>Docker</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Prometheus</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Grafana</span>
-                  </div>
-                  <div class="tech-item">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Loki</span>
-                  </div>
-                </div>
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">기술 스택</span>
+                <span class="post-date">2025년 8월 13일</span>
               </div>
-            </div>
+              <h3 class="post-title">
+                <a href="/posts/technology-stack.html"
+                  >Motoo 프로젝트 기술 스택 분석</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                Spring Boot, React, PostgreSQL, Redis 등 Motoo 프로젝트에서 사용하는
+                기술 스택과 각 기술의 선택 이유를 분석합니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">spring-boot</span>
+                  <span class="tag">react</span>
+                  <span class="tag">postgresql</span>
+                  <span class="tag">redis</span>
+                </div>
+                <a href="/posts/technology-stack.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">마이크로서비스</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/microservices-architecture.html"
+                  >마이크로서비스 아키텍처 설계</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                도메인 중심의 마이크로서비스 아키텍처 설계와 각 서비스 간의
+                통신 방식, 데이터 관리 전략을 살펴봅니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">microservices</span>
+                  <span class="tag">ddd</span>
+                  <span class="tag">service-communication</span>
+                </div>
+                <a href="/posts/microservices-architecture.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-category">인프라 구성</span>
+                <span class="post-date">2025년 8월 13일</span>
+              </div>
+              <h3 class="post-title">
+                <a href="/posts/infrastructure-setup.html"
+                  >Docker 기반 인프라 구성</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                Docker Compose를 활용한 개발 환경 구성과 Prometheus, Grafana,
+                Loki를 통한 모니터링 및 로깅 시스템 구축 방법을 다룹니다.
+              </p>
+              <div class="post-footer">
+                <div class="post-tags">
+                  <span class="tag">docker</span>
+                  <span class="tag">monitoring</span>
+                  <span class="tag">logging</span>
+                  <span class="tag">prometheus</span>
+                </div>
+                <a href="/posts/infrastructure-setup.html" class="read-more">
+                  읽어보기 <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
-        <!-- Microservices Architecture -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-microchip"></i>
-            마이크로서비스 아키텍처
-          </h2>
-          <div class="content-card">
-            <p>
-              Motoo는 도메인 중심의 마이크로서비스 아키텍처를 채택하여 각 비즈니스 도메인별로 독립적인 서비스를 운영합니다.
-            </p>
-
-            <div class="services-grid">
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-user"></i>
-                </div>
-                <h3>User Service</h3>
-                <p>사용자 계정 관리, 인증, 권한 관리</p>
-                <ul>
-                  <li>회원가입/로그인</li>
-                  <li>사용자 프로필 관리</li>
-                  <li>JWT 토큰 인증</li>
-                </ul>
-              </div>
-
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Stock Service</h3>
-                <p>주식 종목 정보 및 시세 데이터 관리</p>
-                <ul>
-                  <li>종목 정보 관리</li>
-                  <li>실시간 시세 수집</li>
-                  <li>재무제표 데이터</li>
-                </ul>
-              </div>
-
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-shopping-cart"></i>
-                </div>
-                <h3>Order Service</h3>
-                <p>주문 생성, 매칭, 상태 관리</p>
-                <ul>
-                  <li>매수/매도 주문</li>
-                  <li>주문 매칭 엔진</li>
-                  <li>주문 상태 관리</li>
-                </ul>
-              </div>
-
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>Portfolio Service</h3>
-                <p>포트폴리오 관리 및 분석</p>
-                <ul>
-                  <li>보유 주식 관리</li>
-                  <li>포트폴리오 가치 계산</li>
-                  <li>투자 성과 분석</li>
-                </ul>
-              </div>
-
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-exchange-alt"></i>
-                </div>
-                <h3>Execution Service</h3>
-                <p>체결 처리 및 거래 내역 관리</p>
-                <ul>
-                  <li>체결 처리</li>
-                  <li>거래 내역 관리</li>
-                  <li>체결 검증</li>
-                </ul>
-              </div>
-
-              <div class="service-card">
-                <div class="service-icon">
-                  <i class="fas fa-key"></i>
-                </div>
-                <h3>Token Service</h3>
-                <p>API 토큰 관리 및 갱신</p>
-                <ul>
-                  <li>한국투자증권 API 토큰</li>
-                  <li>토큰 자동 갱신</li>
-                  <li>토큰 유효성 검증</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Flow -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-route"></i>
-            데이터 플로우
-          </h2>
-          <div class="content-card">
-            <div class="flow-diagram">
-              <h3>주식 거래 플로우</h3>
-              <div class="flow-steps">
-                <div class="flow-step">
-                  <div class="step-number">1</div>
-                  <div class="step-content">
-                    <h4>사용자 주문</h4>
-                    <p>매수/매도 주문 생성</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">2</div>
-                  <div class="step-content">
-                    <h4>주문 검증</h4>
-                    <p>잔고 및 주문 유효성 검증</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">3</div>
-                  <div class="step-content">
-                    <h4>주문 매칭</h4>
-                    <p>가격-시간 우선순위 매칭</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">4</div>
-                  <div class="step-content">
-                    <h4>체결 처리</h4>
-                    <p>체결 내역 생성 및 저장</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">5</div>
-                  <div class="step-content">
-                    <h4>포트폴리오 업데이트</h4>
-                    <p>보유 주식 및 현금 잔고 업데이트</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flow-diagram">
-              <h3>시세 데이터 수집 플로우</h3>
-              <div class="flow-steps">
-                <div class="flow-step">
-                  <div class="step-number">1</div>
-                  <div class="step-content">
-                    <h4>스케줄러 실행</h4>
-                    <p>정기적 데이터 수집 트리거</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">2</div>
-                  <div class="step-content">
-                    <h4>한국투자증권 API 호출</h4>
-                    <p>실시간 시세 데이터 요청</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">3</div>
-                  <div class="step-content">
-                    <h4>데이터 저장</h4>
-                    <p>1분봉, 1시간봉, 1일봉 저장</p>
-                  </div>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                  <div class="step-number">4</div>
-                  <div class="step-content">
-                    <h4>데이터 집계</h4>
-                    <p>상위 단위 데이터 집계</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Infrastructure -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-server"></i>
-            인프라 구성
-          </h2>
-          <div class="content-card">
-            <div class="infrastructure-grid">
-              <div class="infra-category">
-                <h3>Application Services</h3>
-                <div class="infra-items">
-                  <div class="infra-item">
-                    <strong>Backend Service</strong>
-                    <p>Spring Boot 애플리케이션 (Port: 8080)</p>
-                  </div>
-                  <div class="infra-item">
-                    <strong>Database</strong>
-                    <p>PostgreSQL 15 (Port: 5432)</p>
-                  </div>
-                  <div class="infra-item">
-                    <strong>Cache & Queue</strong>
-                    <p>Redis 7 (Port: 6379)</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="infra-category">
-                <h3>Monitoring Services</h3>
-                <div class="infra-items">
-                  <div class="infra-item">
-                    <strong>Prometheus</strong>
-                    <p>메트릭 수집 및 알림 (Port: 9090)</p>
-                  </div>
-                  <div class="infra-item">
-                    <strong>Grafana</strong>
-                    <p>대시보드 및 시각화 (Port: 3001)</p>
-                  </div>
-                  <div class="infra-item">
-                    <strong>cAdvisor</strong>
-                    <p>컨테이너 모니터링 (Port: 8081)</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="infra-category">
-                <h3>Logging Services</h3>
-                <div class="infra-items">
-                  <div class="infra-item">
-                    <strong>Loki</strong>
-                    <p>로그 집계 시스템 (Port: 3100)</p>
-                  </div>
-                  <div class="infra-item">
-                    <strong>Promtail</strong>
-                    <p>로그 수집 에이전트</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Security & Performance -->
-        <section class="content-section">
-          <h2 class="section-title">
-            <i class="fas fa-shield-alt"></i>
-            보안 및 성능
-          </h2>
-          <div class="content-card">
-            <div class="security-performance">
-              <div class="security-section">
-                <h3>보안</h3>
-                <ul>
-                  <li>JWT 기반 인증 시스템</li>
-                  <li>API 토큰 안전한 저장 및 자동 갱신</li>
-                  <li>환경 변수를 통한 민감 정보 관리</li>
-                  <li>입력 데이터 유효성 검사</li>
-                  <li>SQL Injection 방지</li>
-                </ul>
-              </div>
-
-              <div class="performance-section">
-                <h3>성능 최적화</h3>
-                <ul>
-                  <li>Redis를 통한 캐싱</li>
-                  <li>데이터베이스 인덱스 최적화</li>
-                  <li>N+1 문제 해결을 위한 Fetch Join</li>
-                  <li>페이지네이션을 통한 대용량 데이터 처리</li>
-                  <li>배치 처리를 통한 성능 향상</li>
-                </ul>
-              </div>
-            </div>
+        <!-- Quick Links -->
+        <section class="quick-links">
+          <h2>🔗 빠른 링크</h2>
+          <div class="links-grid">
+            <a href="/domain" class="link-card">
+              <i class="fas fa-bullseye"></i>
+              <span>도메인 설계</span>
+            </a>
+            <a href="/implementation" class="link-card">
+              <i class="fas fa-code"></i>
+              <span>구현 패턴</span>
+            </a>
+            <a href="/testing" class="link-card">
+              <i class="fas fa-flask"></i>
+              <span>테스트 전략</span>
+            </a>
+            <a href="/troubleshooting" class="link-card">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>문제해결</span>
+            </a>
           </div>
         </section>
       </div>
@@ -473,7 +256,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Motoo Team. All rights reserved.</p>
+          <p>&copy; 2025 Motoo Team. All rights reserved.</p>
         </div>
       </div>
     </footer>
