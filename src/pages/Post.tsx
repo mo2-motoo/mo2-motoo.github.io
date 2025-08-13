@@ -10,8 +10,7 @@ import { Edit, Trash2, ArrowLeft, ArrowRight } from "lucide-react";
 export const Post = () => {
   const { category, slug } = useParams();
   const navigate = useNavigate();
-  const { posts, getPostBySlug, deletePost, getPostCountByCategory } =
-    usePostContext();
+  const { posts, getPostBySlug, deletePost } = usePostContext();
 
   const post = getPostBySlug(slug || "");
   const currentCategory = categories.find((cat) => cat.slug === category);

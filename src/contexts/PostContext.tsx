@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { Post, PostFormData } from "../types";
 import { posts as initialPosts } from "../data/posts";
 import { generateId, generateSlug } from "../utils/postUtils";
-import { createGitHubAPI, getGitHubToken } from "../config/github";
+import { createGitHubAPI } from "../config/github";
 
 interface PostContextType {
   posts: Post[];
@@ -18,8 +18,6 @@ interface PostContextType {
   getPostBySlug: (slug: string) => Post | undefined;
   getPostsByCategory: (category: string) => Post[];
   getPostCountByCategory: (category: string) => number;
-  filterByCategory: (category: string) => void;
-  isGitHubConnected: boolean;
 }
 
 const PostContext = createContext<PostContextType | undefined>(undefined);
@@ -56,9 +54,6 @@ export const PostProvider: React.FC<{ children: React.ReactNode }> = ({
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"date" | "title" | "author">("date");
-
-  // GitHub 연결 상태 확인
-  const isGitHubConnected = !!getGitHubToken();
 
   // 포스트 변경 시 로컬 스토리지에 저장
   useEffect(() => {
@@ -245,11 +240,6 @@ export const PostProvider: React.FC<{ children: React.ReactNode }> = ({
     return posts.filter((post) => post.category === category).length;
   };
 
-  const filterByCategory = (category: string) => {
-    // 카테고리별 필터링은 이미 useEffect에서 처리됨
-    // 이 함수는 향후 확장을 위해 유지
-  };
-
   const value: PostContextType = {
     posts,
     filteredPosts,
@@ -264,8 +254,6 @@ export const PostProvider: React.FC<{ children: React.ReactNode }> = ({
     getPostBySlug,
     getPostsByCategory,
     getPostCountByCategory,
-    filterByCategory,
-    isGitHubConnected,
   };
 
   return <PostContext.Provider value={value}>{children}</PostContext.Provider>;

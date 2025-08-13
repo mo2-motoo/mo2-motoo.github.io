@@ -4,14 +4,13 @@ import {
   setGitHubToken,
   removeGitHubToken,
 } from "../config/github";
-import { Settings, Key, Trash2, CheckCircle, AlertCircle } from "lucide-react";
+import { Settings, Key, Trash2, CheckCircle } from "lucide-react";
 
 export const GitHubSettings = () => {
   const [token, setToken] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     const savedToken = getGitHubToken();
@@ -93,7 +92,7 @@ export const GitHubSettings = () => {
                 className="token-input"
               />
               <small>
-                GitHub에서 Personal Access Token을 생성하여 입력하세요.
+                GitHub에서 Personal Access Token을 생성하여 블로그와 연동합니다.
                 <br />
                 <a
                   href="https://github.com/settings/tokens"
@@ -122,18 +121,11 @@ export const GitHubSettings = () => {
           </div>
         )}
 
-        {/* 성공/오류 메시지 */}
+        {/* 성공 메시지 */}
         {showSuccess && (
           <div className="message success">
             <CheckCircle size={16} />
             GitHub 토큰이 성공적으로 저장되었습니다!
-          </div>
-        )}
-
-        {showError && (
-          <div className="message error">
-            <AlertCircle size={16} />
-            GitHub 토큰 저장에 실패했습니다.
           </div>
         )}
 

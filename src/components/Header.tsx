@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { usePostContext } from "../contexts/PostContext";
 import { Plus, Menu, X, Settings } from "lucide-react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isGitHubConnected } = usePostContext();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -48,18 +46,12 @@ export const Header = () => {
             </Link>
           </nav>
 
-          {/* GitHub 연결 상태 표시 */}
+          {/* GitHub 설정 링크 */}
           <div className="github-status">
-            {isGitHubConnected ? (
-              <span className="status-connected" title="GitHub에 연결됨">
-                ✅ GitHub
-              </span>
-            ) : (
-              <Link to="/settings" className="github-settings-link">
-                <Settings size={16} />
-                GitHub 설정
-              </Link>
-            )}
+            <Link to="/settings" className="github-settings-link">
+              <Settings size={16} />
+              GitHub 설정
+            </Link>
           </div>
 
           <button className="nav-toggle" onClick={toggleMenu}>

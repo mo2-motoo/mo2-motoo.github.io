@@ -8,25 +8,22 @@ import { Search, SortAsc, Edit, Trash2, Eye } from "lucide-react";
 
 export const Category = () => {
   const { category } = useParams();
-  const {
-    filteredPosts,
-    searchQuery,
-    sortBy,
-    search,
+  const { 
+    filteredPosts, 
+    searchQuery, 
+    sortBy, 
+    search, 
     changeSort,
-    filterByCategory,
     getPostsByCategory,
-    deletePost,
+    deletePost
   } = usePostContext();
 
   const currentCategory = categories.find((cat) => cat.slug === category);
 
   // 카테고리 변경 시 필터링 적용
   useEffect(() => {
-    if (category) {
-      filterByCategory(category);
-    }
-  }, [category, filterByCategory]);
+    // 카테고리별 필터링은 이미 useEffect에서 처리됨
+  }, [category]);
 
   // 포스트 삭제 처리
   const handleDelete = async (postId: string, postTitle: string) => {
@@ -56,7 +53,7 @@ export const Category = () => {
   }
 
   // 현재 카테고리의 포스트들
-  const categoryPosts = getPostsByCategory(category);
+  const categoryPosts = category ? getPostsByCategory(category) : [];
   const displayPosts = searchQuery ? filteredPosts : categoryPosts;
 
   return (
